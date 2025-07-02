@@ -6,3 +6,11 @@ console.log(1.2e4);
 // 12000
 console.log(10 ** 3);
 // べき乗で1000
+
+// 定数
+const price = 150;
+const rate = 1.1;
+
+console.log(price * 120 * rate);
+console.log(price * 130 * rate);
+console.log(price * 140 * rate);
