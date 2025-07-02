@@ -7,10 +7,19 @@ console.log(1.2e4);
 console.log(10 ** 3);
 // べき乗で1000
 
+// 変数
+let price;
+// 値を変える可能性があるのでpriceはletで宣言
+
 // 定数
-const price = 150;
 const rate = 1.1;
 
+price = 150;
+console.log(price * 120 * rate);
+console.log(price * 130 * rate);
+console.log(price * 140 * rate);
+
+price = 151;
 console.log(price * 120 * rate);
 console.log(price * 130 * rate);
 console.log(price * 140 * rate);
