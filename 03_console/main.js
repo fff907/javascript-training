@@ -26,3 +26,6 @@ price++;
 console.log(price * 120 * rate);
 console.log(price * 130 * rate);
 console.log(price * 140 * rate);
+
+console.log("It's \na \npen.");
+// 改行して文字列を出力
