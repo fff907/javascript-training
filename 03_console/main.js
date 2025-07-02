@@ -29,3 +29,10 @@ console.log(price * 140 * rate);
 
 console.log("It's \na \npen.");
 // 改行して文字列を出力
+
+// My name is Taro Yamada, call me Taro!
+const fname = 'Taro';
+const lname = 'Yamada';
+
+console.log(`My name is ${fname} ${lname}, call me ${fname}!`);
+// ${}で定数などを式に埋め込む
