@@ -12,9 +12,14 @@
   // }; 
 
   // アロー関数式（こちらが主流）   
-  const double = (num) => {
-    return num * 2;
+  // const double = (num) => {
+  //   return num * 2;
+  // };
+
+  // 応用：関数を引数にとる関数
+  const calc = (num, func) => {
+    return func(num);
   };
 
-  console.log(double(10));
+  console.log(calc(20, double));
 }
