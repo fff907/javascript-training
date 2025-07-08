@@ -9,5 +9,8 @@
         // 値を追加することもあるので、最後の値はカンマがあってもいい。
     ];
 
+    console.log(scores[2]); //80
+    console.log(scores.length); //個数。出力結果は4。
+    scores[1] = 95;
     console.log(scores);
 }
