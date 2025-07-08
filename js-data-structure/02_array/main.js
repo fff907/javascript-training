@@ -12,5 +12,5 @@
     console.log(scores[2]); //80
     console.log(scores.length); //個数。出力結果は4。
     scores[1] = 95;
-    console.log(scores);
+    console.log(scores); // [70, 95, 80, 85]
 }
