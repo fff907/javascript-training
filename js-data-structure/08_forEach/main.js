@@ -12,9 +12,10 @@
     // 値の再代入しているので、ここはconstではなくて、letにする必要がある。
 
     scores.forEach((score, index) => {
-    console.log(`${index}: ${score}`);
+        sum += score;
+        console.log(`${index}: ${score}`);
   });
 
-  console.log(`Sum: ${sum}`);
-  console.log(`Average: ${sum / scores.length}`);
+    console.log(`Sum: ${sum}`);
+    console.log(`Average: ${sum / scores.length}`);
 }
