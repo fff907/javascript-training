@@ -8,6 +8,8 @@
         85,
     ];
 
+    scores.push(77, 88);
+
     // 要素取得
     // console.log(scores[0]);
     // console.log(scores[1]);
