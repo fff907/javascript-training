@@ -12,7 +12,7 @@
     delete scores.english; //プロパティの削除('delete'を使う)
     console.log(scores);
 
-    // 結果
+    // 結果：90(scores.english)
     // math: 88
     // physics: 70
 }
