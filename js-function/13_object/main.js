@@ -29,4 +29,5 @@
   console.log(`Sum: ${sum}`);
   console.log(`Average: ${sum / entries.length}`);
   // 毎回、合計と平均を表示（平均＝合計 ÷ 科目数）
+  // 結果：physics: 70、Sum: 240、Average: 80
 }
