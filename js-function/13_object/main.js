@@ -29,7 +29,7 @@
   console.log(`Sum: ${sum}`);
   console.log(`Average: ${sum / entries.length}`);
   // 毎回、合計と平均を表示（平均＝合計 ÷ 科目数）
-  // 結果：physics: 70、Sum: 240、Average: 80
+  // 結果：math: 80、english: 90、physics: 70、Sum: 240、Average: 80
 
   // 合計（Sum）と平均（Average）は、ループの外でまとめて表示する
   // → forEachの中に書いてしまうと「途中経過」が毎回表示されてしまう！
