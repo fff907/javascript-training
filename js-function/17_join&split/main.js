@@ -11,5 +11,5 @@
 
   // 逆に文字列から配列を作りたい時
   const names = 'Taro|Jiro|Saburo';
-  console.log(names.split('|')); // 
+  console.log(names.split('|')); // ['Taro', 'Jiro', 'Saburo']
 }
