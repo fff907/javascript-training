@@ -1,7 +1,7 @@
 'use strict';
 
 {
-  const scores = {70, 90, 80, 85};
+  const scores = [70, 90, 80, 85];
 
   scores.splice(2, 0, 77, 88);
   // splice(➀変化する位置のインデックス[0][1][2]..,
