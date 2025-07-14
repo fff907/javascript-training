@@ -25,9 +25,8 @@
 
     console.log(`${prop[0]}: ${prop[1]}`); // math: 80、english: 90で表示
     //prop[0] → 'math'（キー）、prop[1] → 80（値）
-
-    console.log(`Sum: ${sum}`);
-    console.log(`Average: ${sum / entries.length}`);
-    // 毎回、合計と平均を表示（平均＝合計 ÷ 科目数）
   });
+  console.log(`Sum: ${sum}`);
+  console.log(`Average: ${sum / entries.length}`);
+  // 毎回、合計と平均を表示（平均＝合計 ÷ 科目数）
 }
