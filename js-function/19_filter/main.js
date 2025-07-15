@@ -11,8 +11,8 @@
   // }); //上記を簡潔に書くためにfilter()を使う
 
   const pricesOver150 = prices.filter((price) => {
-    return price >= 150;
+  return price >= 150; // 条件に合う要素だけを新しい配列に入れる
   });
 
-  console.log(pricesOver150);
+  console.log(pricesOver150); // [150, 200]
 }
