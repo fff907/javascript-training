@@ -15,8 +15,6 @@
   // const {taro, jiro, saburo} = scores;
   const {taro, ...others} = scores; // {}は新しい配列でなく分割代入の記法(復習)
 
-  console.log(taro); // 70
-  // console.log(jiro);
-  // console.log(saburo);
-  console.log(others); // [90, 80, 85, 77, 88]
+  console.log(taro); // 80
+  console.log(others); // {jiro: 70, saburo: 90, shiro: 77, goro: 88}
 }
