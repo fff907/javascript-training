@@ -1,11 +1,12 @@
 'use strict';
 
 {
+  // プリミティブ型
   // let num = 10;
-  // const numBackup = num;
+  // const numBackup = num; // ← 中身「10」をそのままコピー
   // num = 99;
-  // console.log(num); // 99
-  // console.log(numBackup); // 10
+  // console.log(num);       // 99（上書きしたから）
+  // console.log(numBackup); // 10（コピー元とは別物！）
 
   // 上記処理を配列で行うと...
   const nums = [10, 20, 30];
