@@ -5,6 +5,7 @@
         // console.log('Clicked');
         document.querySelector('p').textContent = 'こんにちは';
         // コンソール画面ではなく、pタグでちゃんと画面に文字列を表示させる
+        // OKボタンを押すと'Hello'が'こんにちは'に変わる処理が行われる
     });
     // querySelector('')の中に
     // 取得したい要素を選択するための
