@@ -12,5 +12,5 @@
   const numsBackup = nums;
   nums[0] = 99;
   console.log(nums);// [99, 20, 30]
-  console.log(numsBackup); // [10, 20, 30]
+  console.log(numsBackup); // [99, 20, 30]。※[10, 20, 30]ではない。
 }
