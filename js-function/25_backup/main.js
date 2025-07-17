@@ -9,16 +9,16 @@
   // console.log(numBackup); // 10（コピー元とは別物！）
 
   // 上記処理を配列で行うと...
-  const nums = [10, 20, 30];
-  const numsBackup = nums; //← 中身じゃなく、「場所」をコピー
-  nums[0] = 99;
-  console.log(nums);// [99, 20, 30]
-  console.log(numsBackup); // [99, 20, 30]。← あれ、変わっちゃってる！
+  // const nums = [10, 20, 30];
+  // const numsBackup = nums; //← 中身じゃなく、「場所」をコピー
+  // nums[0] = 99;
+  // console.log(nums);// [99, 20, 30]
+  // console.log(numsBackup); // [99, 20, 30]。← あれ、変わっちゃってる！
 
   // コピーしたいときはスプレッド構文！
-  // const nums = [10, 20, 30];
-  // const numsBackup = [...nums]; // ← これで中身をコピーできる！
-  // nums[0] = 99;
-  // console.log(nums);       // [99, 20, 30]
-  // console.log(numsBackup); // [10, 20, 30] ← ちゃんと別物！
+  const nums = [10, 20, 30];
+  const numsBackup = [...nums]; // ← これで中身をコピーできる！
+  nums[0] = 99;
+  console.log(nums);       // [99, 20, 30]
+  console.log(numsBackup); // [10, 20, 30] ← ちゃんと別物！
 }
