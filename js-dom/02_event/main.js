@@ -2,7 +2,9 @@
 
 {
     document.querySelector('button').addEventListener('click', () => {
-        console.log('Clicked');
+        // console.log('Clicked');
+        document.querySelector('p').textContent = 'こんにちは';
+        // コンソール画面ではなく、pタグでちゃんと画面に文字列を表示させる
     });
     // querySelector('')の中に
     // 取得したい要素を選択するための
@@ -16,4 +18,6 @@
 
     // ここまで書くと、ボタンを押し、
     // コンソールに「Clicked」と表示される仕組みが完成する
+
+    // console.log('Hello');
 }
