@@ -1,7 +1,9 @@
 'use strict';
 
 {
-  document.querySelector('input').addEventListener('click', () => {
+  // input → text, textarea, select
+  // change → radio, checkbox
+  document.querySelector('input').addEventListener('input', () => {
     const pElement = document.querySelector('p');
     const inputElement = document.querySelector('input');
     // pElement.textContent = inputElement.value;
