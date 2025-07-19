@@ -16,14 +16,14 @@
     // 実行結果：Taro → Hanako → Jiro → Saburo（←Jiroの前に割り込む）
     // 第1引数：追加したい要素（liElement）
     // 第2引数：目印となる要素（ここでは「Jiro」）
-    document.querySelector('ul').insertBefore(
-      liElement,
-      document.querySelector('#second')
-    );
+    // document.querySelector('ul').insertBefore(
+    //   liElement,
+    //   document.querySelector('#second')
+    // );
 
     // ▼ 要素の削除（確認ダイアログでOKを押すと「Jiro」が消える）
-    // if (confirm('Sure?') === true) {
-    //   document.querySelector('#second').remove();
-    // }
+    if (confirm('Sure?') === true) {
+      document.querySelector('#second').remove();
+    }
   });
 }
