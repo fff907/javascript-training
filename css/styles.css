@@ -11,3 +11,34 @@ body {
   padding: 12px 0;
   margin: 16px auto 0;
 }
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* マスクを画面いっぱいに */
+  /* fixed,top,bottom,right,leftセット */
+}
+
+#modal {
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  /* 左右中央に配置したいので=絶対配置 */
+  /* 絶対配置の場合は left: 0; 、 right: 0; をし、
+  左右の margin を auto にすることで
+  中央揃えにできる */
+}
+
+#modal > p {
+  margin: 0 0 20px;
+}
