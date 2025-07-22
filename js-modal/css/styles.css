@@ -22,3 +22,19 @@ body {
   /* マスクを画面いっぱいに */
   /* fixed,top,bottom,right,leftセット */
 }
+
+#modal {
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#modal > p {
+  margin: 0 0 20px;
+}
