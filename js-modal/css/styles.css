@@ -11,3 +11,14 @@ body {
   padding: 12px 0;
   margin: 16px auto 0;
 }
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* マスクを画面いっぱいに */
+  /* fixed,top,bottom,right,leftセット */
+}
