@@ -17,4 +17,10 @@
     mask.classList.add('hidden');
     // close:'hidden'を'add'=モーダルを非表示？
   });
+
+  mask.addEventListener('click', () => {
+    // modal.classList.add('hidden');
+    // mask.classList.add('hidden');
+    close.click(); // この書き方も覚える
+  });
 }
