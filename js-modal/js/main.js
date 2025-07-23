@@ -1,10 +1,10 @@
 'use strict';
 
 {
-  const open = document.getElementById('open');
-  const close = document.getElementById('close');
-  const modal = document.getElementById('modal');
-  const mask = document.getElementById('mask');
+  const open = document.querySelector('#open');
+  const close = document.querySelector('#close');
+  const modal = document.querySelector('#modal');
+  const mask = document.querySelector('#mask');
 
   open.addEventListener ('click', () => {
     modal.classList.remove('hidden');
