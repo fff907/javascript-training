@@ -1,33 +1,31 @@
 'use strict';
 
-{
-  const openBtns = document.querySelectorAll('.works__thumbnail-link');
-  const close = document.querySelector('.close-btn');
-  const modal = document.querySelector('#popup');
-  const mask = document.querySelector('.popup-overlay');
+const modal = document.querySelector('.Modal');
+const overlay = modal.querySelector('.Overlay');
+const modalImage = modal.querySelector('.ModalImage');
+const modalCaption = modal.querySelector('.ModalCaption');
+const closeButton = modal.querySelector('.CloseButton');
+const triggers = document.querySelectorAll('.works__thumbnail-link');
 
-  openBtns.forEach(open => {
-    open.addEventListener ('click', (e) => {
-      e.preventDefault();
-      modal.classList.remove('hidden');
-      mask.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      // モーダルを開いたときに背景スクロールを止める
-      // ※body(背景全体)にoverflow: hiddenを指定 
-      // modal.querySelector('.popup-content').scrollTop = 0;
-      // ポップアップを開いた時に 内容のスクロール位置をリセット
-    });
-  });
+triggers.forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
 
-  close.addEventListener ('click', () => {
-    modal.classList.add('hidden');
-    mask.classList.add('hidden');
-    document.body.style.overflow = '';
-    // モーダルを閉じたときにスクロールを元に戻す
-    // ※空文字 '' で元のスタイルに戻る
-  });
+    const imgSrc = trigger.dataset.image;
+    const captionText = trigger.dataset.caption;
 
-  mask.addEventListener('click', () => {
-    close.click();
+    modalImage.src = imgSrc;
+    modalCaption.textContent = captionText;
+
+    modal.classList.remove('hidden');
+    document.body.classList.add('ModalOpen');
   });
+});
+
+function closeModal() {
+  modal.classList.add('hidden');
+  document.body.classList.remove('ModalOpen');
 }
+
+overlay.addEventListener('click', closeModal);
+closeButton.addEventListener('click', closeModal);
