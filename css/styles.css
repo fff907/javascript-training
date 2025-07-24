@@ -77,10 +77,7 @@
   transition: opacity 0.3s ease;
 }
 
-.popup:target {
-  opacity: 1;
-  pointer-events: auto;
-}
+/* 変更点➁：.popup:targetを削除 */
 
 .popup-overlay {
   position: absolute;
@@ -151,6 +148,7 @@
   background-color: #f0f0f0;
 }
 
+/* 変更点➂：以下を追加 */
 .hidden {
   display: none;
 }
