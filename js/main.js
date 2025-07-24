@@ -6,7 +6,8 @@
   const modal = document.querySelector('#popup');
   const mask = document.querySelector('.popup-overlay');
 
-  open.addEventListener ('click', () => {
+  open.addEventListener ('click', (e) => {
+    e.preventDefault();
     modal.classList.remove('hidden');
     mask.classList.remove('hidden');
   });
