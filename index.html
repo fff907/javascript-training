@@ -1,30 +1,63 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>モーダルテスト</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <div class="works__container">
-    <div class="works__item">
-      <a href="#" class="works__thumbnail-link" data-image="https://placehold.jp/300x500.png" data-caption="テスト画像の説明">
-        <img src="https://placehold.jp/300x200.png" alt="サムネイル画像" class="works__thumbnail">
-      </a>
-    </div>
-  </div>
-
-  <!-- モーダル要素 -->
-  <div class="Modal hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./resources/styles/destyle.css" />
+    <link rel="stylesheet" href="./resources/styles/style.css" />
+  </head>
+  <body>
+    <header class="Header">
+      <h1 class="Logo">LOGO</h1>
+    </header>
+    <div class="Modal">モーダルウィンドウです</div>
     <div class="Overlay"></div>
-    <div class="ModalContent">
-      <img src="https://placehold.jp/300x500.png" alt="" class="ModalImage">
-      <p class="ModalCaption"></p>
-      <button class="CloseButton">閉じる</button>
-    </div>
-  </div>
+    <main class="Main">
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+      <section class="Section">
+        <button class="Button">ボタン</button>
+      </section>
+    </main>
+    <script>
+      const body = document.body
+      const buttons = document.querySelectorAll(".Button")
+      const modal = document.querySelector(".Modal")
+      const overlay = document.querySelector(".Overlay")
 
-  <script src="js/main.js"></script>
-</body>
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          toggleModal()
+        })
+      })
+
+      overlay.addEventListener("click", () => {
+        toggleModal()
+      })
+
+      function toggleModal() {
+        modal.classList.toggle("ModalIsOpen")
+        overlay.classList.toggle("OverlayIsOpen")
+        body.classList.toggle("IsScrollAllowed")
+      }
+    </script>
+  </body>
 </html>
