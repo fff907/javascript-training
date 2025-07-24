@@ -13,10 +13,7 @@
     document.body.style.overflow = 'hidden';
     // モーダルを開いたときに背景スクロールを止める
     // ※body(背景全体)にoverflow: hiddenを指定 
-    const content = modal.querySelector('.popup-content');
-    if (content) {
-    content.scrollTop = 0;
-    }
+    modal.querySelector('.popup').scrollTop = 0;
     // ポップアップを開いた時に 内容のスクロール位置をリセット
   });
 
