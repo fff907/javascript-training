@@ -151,6 +151,11 @@
   background-color: #f0f0f0;
 }
 
+.hidden {
+  display: none;
+}
+
+
 @media (max-width: 767px) {
   .works__description {
     margin: 1.5rem 1rem 2rem;
