@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  padding: 0 16px;
+}
+
+.sp-menu {
+  margin-left: auto;
+}
