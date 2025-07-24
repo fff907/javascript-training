@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUGA SHIMIZU PORTFOLIO</title>
-    <meta name="description" content="清水風雅のポートフォリオサイトです。">
-    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-
-  <body>
-    <div class="works__container">
-      <div class="works__item">
-        <div class="works__gallery">
-          <!-- サムネイル画像 -->
-          <a href="#popup" class="works__thumbnail-link">
-            <img src="https://placehold.jp/300x200.png" alt="清水雅人 official siteのサムネイル" class="works__thumbnail">
-          </a>
-        </div>
-      
-        <!-- ポップアップ -->
-        <div id="popup" class="popup hidden">
-          <div class="popup-overlay"></div>
-          <!-- ポップアップ外のクリックを検知 -->
-          <div class="popup-content">
-            <!-- 画像 -->
-            <img src="https://placehold.jp/300x500.png"  alt="清水雅人 official siteのスクリーンショット" class="popup-image">
-            
-            <!-- 画像の説明 -->
-            <p class="works__caption-title">テスト<br>(テスト/テスト)</p>            
-            
-            <!-- 閉じるボタン -->
-            <button type="button" class="close-btn">閉じる</button>
-         </div>
-        </div>          
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>モーダルテスト</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="works__container">
+    <div class="works__item">
+      <a href="#" class="works__thumbnail-link" data-image="https://placehold.jp/300x500.png" data-caption="テスト画像の説明">
+        <img src="https://placehold.jp/300x200.png" alt="サムネイル画像" class="works__thumbnail">
+      </a>
     </div>
+  </div>
 
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-  </body>
+  <!-- モーダル要素 -->
+  <div class="Modal hidden">
+    <div class="Overlay"></div>
+    <div class="ModalContent">
+      <img src="https://placehold.jp/300x500.png" alt="" class="ModalImage">
+      <p class="ModalCaption"></p>
+      <button class="CloseButton">閉じる</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
