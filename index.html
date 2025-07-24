@@ -1,135 +1,65 @@
 <!DOCTYPE html>
 <html lang="ja">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .Header {
-        width: 100%;
-        height: 60px;
-        background-color: #6ba6e7;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .Logo {
-        color: #fff;
-        font-size: 32px;
-        font-weight: bold;
-      }
-
-      .Main {
-        width: 100%;
-        padding-top: 12px;
-        padding-left: 32px;
-        padding-right: 32px;
-        padding-bottom: 32px;
-        background-color: #eee;
-      }
-
-      .Section {
-        margin-top: 20px;
-        width: 100%;
-        height: 400px;
-        background-color: lightgreen;
-      }
-
-      .Button {
-        width: 120px;
-        padding: 16px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #6ba6e7;
-        color: #fff;
-      }
-
-      .Modal {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 20;
-        margin: auto;
-        width: 400px;
-        height: 200px;
-        padding: 32px;
-        color: #fff;
-        background-color: #6ba6e7;
-
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.3s;
-      }
-
-      .ModalIsOpen {
-        visibility: visible;
-        opacity: 1;
-      }
-
-      .Overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.2);
-
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.3s;
-      }
-
-      .OverlayIsOpen {
-        visibility: visible;
-        opacity: 1;
-      }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
   </head>
 
   <body>
-    <header class="Header">
-      <h1 class="Logo">LOGO</h1>
-    </header>
-    <div class="Modal">モーダルウィンドウです</div>
-    <div class="Overlay"></div>
-    <main class="Main">
-      <section class="Section">
-        <button class="Button">ボタン</button>
-      </section>
-      <section class="Section">
-        <button class="Button">ボタン</button>
-      </section>
-      <section class="Section">
-        <button class="Button">ボタン</button>
-      </section>
-    </main>
-    <script>
-      const body = document.body
-      const buttons = document.querySelectorAll(".Button")
-      const modal = document.querySelector(".Modal")
-      const overlay = document.querySelector(".Overlay")
+    <div class="works__container">
+      <div class="works__item">
+        <div class="works__gallery">
+          <!-- サムネイル画像 -->
+          <a href="#popup" class="works__thumbnail-link">
+            <img src="https://placehold.jp/300x200.png" alt="清水雅人 official siteのサムネイル" class="works__thumbnail">
+          </a>
+        </div>
+      
+        <!-- ポップアップ -->
+        <div id="popup" class="popup hidden">
+          <div class="popup-overlay"></div>
+          <!-- ポップアップ外のクリックを検知 -->
+          <div class="popup-content">
+            <!-- 画像 -->
+            <img src="https://placehold.jp/300x500.png"  alt="清水雅人 official siteのスクリーンショット" class="popup-image">
+            
+            <!-- 画像の説明 -->
+            <p class="works__caption-title">テスト<br>(テスト/テスト)</p>            
+            
+            <!-- 閉じるボタン -->
+            <button type="button" class="close-btn">閉じる</button>
+         </div>
+        </div>          
+      </div>
+    </div>
 
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          toggleModal()
-        })
-      })
+    <script>     
+      const openBtns = document.querySelectorAll('.works__thumbnail-link');
+      const close = document.querySelector('.close-btn');
+      const modal = document.querySelector('#popup');
+      const mask = document.querySelector('.popup-overlay');
 
-      overlay.addEventListener("click", () => {
-        toggleModal()
-      })
+      openBtns.forEach(open => {
+        open.addEventListener('click', e => {
+          e.preventDefault();
+          modal.classList.remove('hidden');
+          mask.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          modal.querySelector('.popup-content').scrollTop = 0;
+        });
+      });
 
-      function toggleModal() {
-        modal.classList.toggle("ModalIsOpen")
-        overlay.classList.toggle("OverlayIsOpen")
-        body.classList.toggle("IsScrollAllowed")
-      }
+      close.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        mask.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+
+      mask.addEventListener('click', () => {
+        close.click();
+      });
     </script>
   </body>
 </html>
