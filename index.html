@@ -4,7 +4,168 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO</title>
+    <title>FUGA SHIMIZU PORTFOLIO</title>
+    <meta name="description" content="清水風雅のポートフォリオサイトです。">
+    <link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css">
+    <!-- CSS -->
+    <style>
+      .works__title {
+        display: flex;
+        font-family: Emblema One;
+        color: #fff;
+        font-size: 3rem;
+        font-weight: normal;
+        margin-left: 2rem;
+      }
+
+      .works__description {
+        margin: 2rem 0rem;
+      }
+
+      .works__container {
+        padding: 0 1.25rem;
+      }
+
+      .works__caption-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 1rem;
+      }
+
+      .works__caption {
+        margin-bottom: 4rem;
+        font-size: 1rem;
+      }
+
+      .works__gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+      }
+
+      .works__gallery img {
+        width: 100%;
+        max-width: 18.75rem;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .works__gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      .works__item {
+        margin-bottom: 2rem;
+      }
+
+      .works__container > .works__item > img {
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+      }
+
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        /* 初期状態は非表示 */
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .popup:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .popup-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+      }
+
+      .popup-content {
+        position: relative;
+        background-color: #fff;
+        width: 90%;
+        max-width: 37.5rem;
+        max-height: 80%;
+        overflow-y: auto;
+        padding: 1.25rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9375rem;
+      }
+
+      .popup-image {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .popup-description {
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.5;
+        text-align: left;
+        padding-bottom: 1rem;
+      }
+
+      .popup-description strong {
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 0.25rem;
+      }
+
+      .popup-url {
+        font-size: 1rem;
+        word-break: break-word;
+      }
+
+      .close-btn {
+        display: inline-block;
+        color: #333;
+        border: 1px solid #333;
+        border-radius: 3px;
+        padding: 0.0625rem 0.25rem;
+        font-size: 0.875rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        line-height: 1;
+        /* 縦方向の余白を詰める */
+        margin: 0 auto;
+      }
+
+      .close-btn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -35,31 +196,37 @@
       </div>
     </div>
 
-    <script>     
+    <!-- JS -->
+     <script>
       const openBtns = document.querySelectorAll('.works__thumbnail-link');
       const close = document.querySelector('.close-btn');
       const modal = document.querySelector('#popup');
       const mask = document.querySelector('.popup-overlay');
-
+      
       openBtns.forEach(open => {
-        open.addEventListener('click', e => {
+        open.addEventListener ('click', (e) => {
           e.preventDefault();
           modal.classList.remove('hidden');
           mask.classList.remove('hidden');
           document.body.style.overflow = 'hidden';
+          // モーダルを開いたときに背景スクロールを止める
+          // ※body(背景全体)にoverflow: hiddenを指定 
           modal.querySelector('.popup-content').scrollTop = 0;
+          // ポップアップを開いた時に 内容のスクロール位置をリセット
         });
       });
 
-      close.addEventListener('click', () => {
+      close.addEventListener ('click', () => {
         modal.classList.add('hidden');
         mask.classList.add('hidden');
         document.body.style.overflow = '';
+        // モーダルを閉じたときにスクロールを元に戻す
+        // ※空文字 '' で元のスタイルに戻る
       });
 
       mask.addEventListener('click', () => {
         close.click();
       });
-    </script>
+     </script>
   </body>
 </html>
