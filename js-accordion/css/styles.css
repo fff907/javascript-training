@@ -37,6 +37,11 @@ dt::after {
   right: 16px;
   /* dtを基準に、上から8px・右から16pxに配置。 */
   transition: transform .3s;
+  /* なぜtransition？
+    → もともと表示されている要素（＋ボタン）に対して、
+    「変化が起きたときだけ」なめらかに変化させたい場合は
+    transitionで十分。ここでは「回転」だけなので、
+    軽量かつ扱いやすいtransitionを使う。 */
 }
 
 dl > div.appear dt::after {
@@ -66,4 +71,15 @@ dl > div.appear dd {
     opacity: 1;
     transform: none;
   }
+  /* 透明（0）から徐々に不透明（1）になる
+  ＝フェードイン効果 */
+  /* なぜkeyframes？
+    → 回答部分（dd）は初期状態がdisplay: none。
+    transition は「表示されたあとの変化」しか扱えないため、
+    表示トリガーとアニメーションを同時に扱うには
+    keyframes（animation）が必要になる。
+    
+    つまり、「表示されていない → 表示される」変化に
+    アニメーションをかけたい時は、keyframesじゃないとダメ。
+　*/
 }
