@@ -1,31 +1,42 @@
 body {
-  margin: 0;
+  margin: 0; /* ブラウザのデフォルト余白をリセット */
   font-family: Verdana, sans-serif;
 }
 
 header {
   display: flex;
+  /* ヘッダー内の要素を横並び（flexbox）に配置 */
   padding: 0 16px;
 }
 
 header h1 {
-  margin: 0;
+  margin: 0;  /* h1要素のデフォルト余白を削除 */
   font-size: 22px;
   line-height: 64px;
+  /* 縦方向の中央揃え用。
+  【復習】「line-height = 親要素の高さ」で中央になる */
 }
 
 .sp-menu {
   margin-left: auto;
+  /* 右寄せ。flexboxで最後に配置 */
+  /* auto によって 左側に空白（マージン）を
+  押し込むことで、要素自身は右に押される */
+  /* margin-left: auto; は 右寄せの必殺技。 */
+  /* 親要素が display: flex; である必要がある */
 }
 
 .sp-menu #open {
   font-size: 32px;
+  /* ハンバーガーアイコン（menu）の大きさ */
   line-height: 64px;
+  /* ヘッダー内で縦中央に配置 */
   cursor: pointer;
 }
 
 .sp-menu #open.hide {
   display: none;
+  /* メニューが開いているとき、三本線を非表示にする */
 }
 
 main {
@@ -34,25 +45,29 @@ main {
 
 .overlay {
   position: fixed;
+  /* 画面に固定（スクロールしても位置は変わらない） */
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  /* 画面全体を覆うため四方を0指定 */
   background: rgba(255, 255, 255, 0.95);
   text-align: center;
   padding: 64px;
-  opacity: 0;
+  opacity: 0; /* 初期状態では非表示（透過） */
   pointer-events: none;
+  /* マウスクリックなどのイベントを無効化（非表示状態のため） */
   transition: opacity .6s;
 }
 
 .overlay.show {
-  opacity: 1;
-  pointer-events: auto;
+  opacity: 1; /* 表示状態に */
+  pointer-events: auto; /* イベントを有効化 */
 }
 
 .overlay #close {
   position: absolute;
+  /* オーバーレイ全体を基準にして閉じるボタンを配置 */
   top: 16px;
   right: 16px;
   font-size: 32px;
