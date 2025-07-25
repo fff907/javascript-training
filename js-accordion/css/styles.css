@@ -36,6 +36,7 @@ dt::after {
   top: 8px;
   right: 16px;
   /* dtを基準に、上から8px・右から16pxに配置。 */
+  transition: transform .3s;
 }
 
 dl > div.appear dt::after {
@@ -54,4 +55,15 @@ dd::before {
 
 dl > div.appear dd {
   display: block;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
