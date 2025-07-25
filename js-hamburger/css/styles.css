@@ -84,16 +84,23 @@ main {
   margin-top: 24px;
   opacity: 0;
   transform: translateY(16px);
+  /* メニュー項目がふわっと順番に出てくるアニメーション */
+  /* 下に16pxズラすことで「下から上がってくる」ような演出 */
   transition: opacity .3s, transform .3s;
+  /* アニメーションの速度設定 */
 }
 
 .overlay.show li {
   opacity: 1;
-  transform: none;
+  transform: none; /* 元の位置に戻す */
 }
 
 .overlay.show li:nth-child(1) {
+  /* 子要素ごとに 遅延アニメーション
+  （順番にふわっと出す） */
   transition-delay: .1s;
+  /* 順番に遅らせて表示。
+  .1s, .2s, .3sと時差があることでリズムが生まれる */
 }
 
 .overlay.show li:nth-child(2) {
