@@ -17,10 +17,18 @@ dt {
   padding: 8px;
   cursor: pointer;
   user-select: none;
+  position: relative;
 }
 
 dt::before {
   content: 'Q. ';
+}
+
+dt::after {
+  content: '+';
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 dd {
