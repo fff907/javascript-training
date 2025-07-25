@@ -38,13 +38,20 @@ dt::after {
   /* dtを基準に、上から8px・右から16pxに配置。 */
 }
 
+dl > div.appear dt::after {
+  transform: rotate(45deg);
+}
+
 dd {
   padding: 8px;
-  margin: 0; /* デフォルトで入る余白を削除 */
+  margin: 0;
   display: none;
 }
 
 dd::before {
   content: 'A .';
-  /* dtの先頭に追加 */
+}
+
+dl > div.appear dd {
+  display: block;
 }
