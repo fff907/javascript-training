@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: verdana, sans-serif;
+  font-family: Verdana, sans-serif;
 }
 
 header {
@@ -8,6 +8,22 @@ header {
   padding: 0 16px;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 64px;
+}
+
 .sp-menu {
   margin-left: auto;
+}
+
+.sp-menu #open {
+  font-size: 32px;
+  line-height: 64px;
+  cursor: pointer;
+}
+
+main {
+  padding: 0 16px;
 }
