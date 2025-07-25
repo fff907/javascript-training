@@ -24,23 +24,30 @@ header h1 {
   cursor: pointer;
 }
 
+.sp-menu #open.hide {
+  display: none;
+}
+
 main {
   padding: 0 16px;
 }
 
 .overlay {
-  position: fixed; /* 全画面にかぶせる */
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  /* 画面の四隅すべてに「0距離」で貼り付ける */
   background: rgba(255, 255, 255, 0.95);
-  /* 半透明白背景 */
   text-align: center;
   padding: 64px;
-  opacity: 0; /* 最初は非表示 */
-  pointer-events: none; /* クリック無効 */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .overlay #close {
