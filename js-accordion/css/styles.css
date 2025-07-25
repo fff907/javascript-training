@@ -60,6 +60,7 @@ dd::before {
 
 dl > div.appear dd {
   display: block;
+  animation: .3s fadeIn; /* keyflamesとセットで */
 }
 
 @keyframes fadeIn {
@@ -78,7 +79,7 @@ dl > div.appear dd {
     transition は「表示されたあとの変化」しか扱えないため、
     表示トリガーとアニメーションを同時に扱うには
     keyframes（animation）が必要になる。
-    
+
     つまり、「表示されていない → 表示される」変化に
     アニメーションをかけたい時は、keyframesじゃないとダメ。
 　*/
