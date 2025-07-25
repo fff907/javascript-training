@@ -15,9 +15,20 @@ dl > div {
 
 dt {
   padding: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+dt::before {
+  content: 'Q. ';
 }
 
 dd {
   padding: 8px;
   margin: 0; /* デフォルトで入る余白を削除 */
+  display: none;
+}
+
+dd::before {
+  content: 'A .';
 }
