@@ -17,18 +17,25 @@ dt {
   padding: 8px;
   cursor: pointer;
   user-select: none;
+  /* 文字を連続クリックすると文字選択されてしまうため、
+  そうならないようにUXを改善。 */
   position: relative;
+  /* この要素内に配置する
+  ::after を絶対位置でコントロールできるように。 */
 }
 
 dt::before {
   content: 'Q. ';
+  /* dtの先頭に追加 */
 }
 
 dt::after {
   content: '+';
+  /* dtの末尾に追加 */
   position: absolute;
   top: 8px;
   right: 16px;
+  /* dtを基準に、上から8px・右から16pxに配置。 */
 }
 
 dd {
@@ -39,4 +46,5 @@ dd {
 
 dd::before {
   content: 'A .';
+  /* dtの先頭に追加 */
 }
