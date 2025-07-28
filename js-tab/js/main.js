@@ -3,11 +3,19 @@
 {
   const menuItems = document.querySelectorAll('.menu li a');
 
-  menuItems.forEach(item => {
-    item.addEventListener('click', e => {
+  menuItems.forEach(clickedItem => {
+    clickedItem.addEventListener('click', e => {
       e.preventDefault();
 
-      item.classList.add('active');
+      menuItems.forEach(item => {
+        item.classList.add('active');
+        // クリックしたメニュー項目のactiveクラスを外す 
+        // 選択中のアイテムと混同しないよう'item'にする 
+      });
+      clickedItem.classList.add('active');
+      // クリックしたメニュー項目にactiveクラスをつける
+      // 選択中のアイテムと混同しないよう
+      // 'clickedItem'にする   
     });
   });
 }
