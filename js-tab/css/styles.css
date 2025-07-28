@@ -17,4 +17,25 @@ body {
 .menu li a {
   display: inline-block;
   width: 100px;
+  text-align: center;
+  padding: 8px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu li a.active {
+  background: #333;
+  color: #fff;
+}
+
+.content.active {
+  background: #333;
+  color: #fff;
+  display: block;
+}
+/* メニューで選ばれた項目だけを
+黒の背景に白抜きの文字で表示 */
+
+.content {
+  display: none;
 }
