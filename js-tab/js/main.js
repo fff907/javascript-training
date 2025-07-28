@@ -8,7 +8,7 @@
       e.preventDefault();
 
       menuItems.forEach(item => {
-        item.classList.add('active');
+        item.classList.remove('active');
         // クリックしたメニュー項目のactiveクラスを外す 
         // 選択中のアイテムと混同しないよう'item'にする 
       });
