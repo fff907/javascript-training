@@ -3,6 +3,7 @@
   height: 220px;
   margin: 16px auto;
   overflow: hidden; /* 横にはみ出た画像を隠す */
+  position: relative; /* 矢印用の絶対配置 */
 }
 
 /* ↓ imgの親要素はliとulなので、
@@ -25,4 +26,18 @@ li img {
   height: 100%;
   object-fit: cover;
   /* 画像の縦横比を保ったまま領域全体を埋める */
+}
+
+#prev,
+#next { /* 矢印 */
+  position: absolute;
+  top: 100px;
+}
+
+#prev {
+  left: 0;
+}
+
+#next {
+  right: 0;
 }
