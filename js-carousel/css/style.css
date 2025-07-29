@@ -29,9 +29,22 @@ li img {
 }
 
 #prev,
-#next { /* 矢印 */
-  position: absolute;
-  top: 100px;
+#next { /* 矢印ボタン */
+  position: absolute; /* .containerに対して */
+  top: 50%;
+  transform: translateY(-50%);
+  /* 上下中央に揃える */
+  border: none; /* ボタンの枠線を消す */
+  background: rgba(0, 0, 0, .8);
+  color: #fff;
+  font-size: 24px;
+  padding: 0 8px 4px;
+  cursor: pointer;
+}
+
+#prev:hover,
+#next:hover {
+  opacity: .8;
 }
 
 #prev {
