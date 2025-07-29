@@ -30,26 +30,30 @@
     }
   }
 
+  function moveSlides() {
+    // nextとprevの両方にあったコードを関数にまとめる
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    // 最初のスライド（li）の横幅を取得（レスポンシブ対応）
+    // → 画面サイズに応じて動的に計算される
+    // ※1枚目のスライドの「横幅」を調べて、
+    // → それを移動距離に使うため[0]としている
+    ul.style.transform = `translateX(${-1 * slideWidth * currentIndex}px)`;
+    // ulを左方向にスライド1枚分（幅）だけ移動させる
+    // -1倍してるのは「左に移動」だから（正だと右に動く）
+  }
+
   updateButtons();
   // ボタンの状態（表示/非表示）を更新
 
   next.addEventListener('click', () => {
     currentIndex++; // 現在のスライドを1つ進める
     updateButtons(); // スライドを移動するたびにUIの状態を更新
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    // 最初のスライド（li）の横幅を取得（レスポンシブ対応）
-    // 画面サイズに応じて動的に計算される
-    // 1枚目のスライドの「横幅」を調べて
-    // それを移動距離に使うため[0]としている
-    ul.style.transform = `translateX(${-1 * slideWidth *currentIndex}px)`;
-    // ulを左方向にスライド1枚分（幅）だけ移動させる
-    // -1倍してるのは「左に移動」だから（正だと右に動く）
+    moveSlides(); // 関数にまとめたのでここで呼び出し
   });
 
   prev.addEventListener('click', () => {
     currentIndex--; // 現在のスライドを1つ戻す
     updateButtons(); // スライドを移動するたびにUIの状態を更新
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    ul.style.transform = `translateX(${-1 * slideWidth *currentIndex}px)`;
+    moveSlides(); // 関数にまとめたのでここで呼び出し
   });
 }
