@@ -1,10 +1,12 @@
 'use strict';
-{
-    const next = document.querySelector('.next');
-    const ul = document.querySelector('ul');
 
-    next.addEventListener('click', () => {
-        ul.style.transform = 'translateX(-200px)';
-        // 左に200px動かす
-    });
+{
+  const next = document.getElementById('next');
+  const ul = document.querySelector('ul');
+  const slides = ul.children;
+
+  next.addEventListener('click', () => {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    ul.style.transform = `translateX(${-1 * slideWidth}px)`;
+  });
 }
