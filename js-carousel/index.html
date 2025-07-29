@@ -8,17 +8,27 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <ul>
-      <li><img src="img/a.png"></li>
-      <li><img src="img/b.png"></li>
-      <li><img src="img/c.png"></li>
-    </ul>
+  <section class="carousel">
+    <!-- カルーセルパーツは全てセクションでまとめる -->
+    <div class="container">
+      <ul>
+        <li><img src="img/a.png"></li>
+        <li><img src="img/b.png"></li>
+        <li><img src="img/c.png"></li>
+      </ul>
 
-    <!-- 文字実体参照 -->
-    <button class="prev">&laquo;</button>
-    <button class="next">&raquo;</button>
-  </div>
+      <!-- 文字実体参照 -->
+      <button class="prev">&laquo;</button>
+      <button class="next">&raquo;</button>
+   </div>
+
+    <nav>
+      <button class="current"></button>
+      <!-- 現在地はcurrentクラスで表現 -->
+      <button></button>
+      <button></button>
+    </nav>
+  </section> 
 
   <script src="js/main.js"></script>
 </body>
