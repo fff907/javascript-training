@@ -1,0 +1,10 @@
+.container {
+  width: 80%;
+  height: 220px;
+  margin: 16px auto;
+  outline: 8px solid red;
+  /* 領域に対して赤い枠線 */
+  /* borderと違い、
+  領域の幅や高さに影響を与えないので
+  他の要素がずれない */
+}
