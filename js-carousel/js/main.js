@@ -25,6 +25,7 @@
     if (currentIndex === slides.length - 1) {
      // 最後のスライドなら「次へ」ボタンを非表示にする
      // 画像枚数を関係なく動作させるため.length
+     // slides.length - 1 ＝ '最後のスライド'
       next.classList.add('hidden');
     }
   }
@@ -37,6 +38,8 @@
     const slideWidth = slides[0].getBoundingClientRect().width;
     // 最初のスライド（li）の横幅を取得（レスポンシブ対応）
     // 画面サイズに応じて動的に計算される
+    // 1枚目のスライドの「横幅」を調べて
+    // それを移動距離に使うため[0]としている
     ul.style.transform = `translateX(${-1 * slideWidth *currentIndex}px)`;
     // ulを左方向にスライド1枚分（幅）だけ移動させる
     // -1倍してるのは「左に移動」だから（正だと右に動く）
