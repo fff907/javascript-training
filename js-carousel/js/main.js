@@ -1,6 +1,6 @@
 'use strict';
 {
-    const next = document.querySelector('next');
+    const next = document.querySelector('.next');
     const ul = document.querySelector('ul');
 
     next.addEventListener('click', () => {
