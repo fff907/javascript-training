@@ -1,7 +1,7 @@
 'use strict';
 
 {
-  const next = document.getElementById('next');
+  const next = document.querySelector('.next');
   const ul = document.querySelector('ul');
   const slides = ul.children;
 
