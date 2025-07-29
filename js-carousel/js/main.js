@@ -10,26 +10,32 @@
   const slides = ul.children;
   // ul内のli要素たちを配列っぽく取得（HTMLCollection）
   let currentIndex = 0;
+  // 現在表示中のスライドのインデックス（最初は0）
 
   function updateButtons() {
     prev.classList.remove('hidden');
     next.classList.remove('hidden');
+    // いったん両方のボタンを表示状態に戻す
 
     if (currentIndex === 0) {
       prev.classList.add('hidden');
     // 最初の画像が表示されている時
-    // ＝currentIndexが0の時にprevのボタンを消す
+    // ＝currentIndexが0の時に「前へ」ボタンを非表示
     }
     if (currentIndex === slides.length - 1) {
+     // 最後のスライドなら「次へ」ボタンを非表示にする
      // 画像枚数を関係なく動作させるため.length
       next.classList.add('hidden');
     }
   }
 
+  updateButtons();
+  // ボタンの状態（表示/非表示）を更新
+
   next.addEventListener('click', () => {
-    currentIndex++;
+    currentIndex++; // 現在のスライドを1つ進める
     const slideWidth = slides[0].getBoundingClientRect().width;
-    // 最初のスライド（li）の横幅を取得。
+    // 最初のスライド（li）の横幅を取得（レスポンシブ対応）
     // 画面サイズに応じて動的に計算される
     ul.style.transform = `translateX(${-1 * slideWidth *currentIndex}px)`;
     // ulを左方向にスライド1枚分（幅）だけ移動させる
@@ -37,7 +43,7 @@
   });
 
   prev.addEventListener('click', () => {
-    currentIndex--;
+    currentIndex--; // 現在のスライドを1つ戻す
     const slideWidth = slides[0].getBoundingClientRect().width;
     ul.style.transform = `translateX(${-1 * slideWidth *currentIndex}px)`;
   });
