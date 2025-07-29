@@ -35,6 +35,7 @@
 
   next.addEventListener('click', () => {
     currentIndex++; // 現在のスライドを1つ進める
+    updateButtons(); // スライドを移動するたびにUIの状態を更新
     const slideWidth = slides[0].getBoundingClientRect().width;
     // 最初のスライド（li）の横幅を取得（レスポンシブ対応）
     // 画面サイズに応じて動的に計算される
@@ -47,6 +48,7 @@
 
   prev.addEventListener('click', () => {
     currentIndex--; // 現在のスライドを1つ戻す
+    updateButtons(); // スライドを移動するたびにUIの状態を更新
     const slideWidth = slides[0].getBoundingClientRect().width;
     ul.style.transform = `translateX(${-1 * slideWidth *currentIndex}px)`;
   });
