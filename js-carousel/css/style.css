@@ -29,8 +29,8 @@ li img {
   /* 画像の縦横比を保ったまま領域全体を埋める */
 }
 
-#prev,
-#next { /* 矢印ボタン */
+.prev,
+.next { /* 矢印ボタン */
   position: absolute; /* .containerに対して */
   top: 50%;
   transform: translateY(-50%);
@@ -43,15 +43,15 @@ li img {
   cursor: pointer;
 }
 
-#prev:hover,
-#next:hover {
+.prev:hover,
+.next:hover {
   opacity: .8;
 }
 
-#prev {
+.prev {
   left: 0;
 }
 
-#next {
+.next {
   right: 0;
 }
