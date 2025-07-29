@@ -9,8 +9,20 @@
   他の要素がずれない */
 }
 
+/* ↓ imgの親要素はliとulなので、
+どちらにも明示的に高さを指定 */
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+li {
+  height: 100%;
+}
+
+li img {
+  width: 100%;
+  height: 100%;
 }
