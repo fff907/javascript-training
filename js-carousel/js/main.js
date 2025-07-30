@@ -55,12 +55,8 @@
         // 丸ボタンをクリックした際の処理
         currentIndex = i;
         // i番目の画像を表示
-        dots.forEach(dot => {
-          dot.classList.remove('current');
-        });
-        // dotsの全ての要素に対してcurrentクラスを削除
-        dots[currentIndex].classList.add('current');
-        // 今クリックされたボタンにだけcurrentクラスを付ける
+        updateDots();
+        // 関数の巻き上げ。丸ボタンの状態を更新
         updateButtons();
         // ボタンの状態（表示/非表示）を更新
         moveSlides();
@@ -77,6 +73,15 @@
     }
   }
 
+  function updateDots () {
+    dots.forEach(dot => {
+        dot.classList.remove('current');
+      });
+      // dotsの全ての要素に対してcurrentクラスを削除
+      dots[currentIndex].classList.add('current');
+      // 今クリックされたボタンにだけcurrentクラスを付ける
+  }
+
   updateButtons();
   // ボタンの状態（表示/非表示）を更新
   setupDots();
@@ -85,12 +90,14 @@
   next.addEventListener('click', () => {
     currentIndex++; // 現在のスライドを1つ進める
     updateButtons(); // スライドを移動するたびにUIの状態を更新
+    updateDots(); // スライドを移動するたびに丸ボタンも更新
     moveSlides(); // 関数にまとめたのでここで呼び出し
   });
 
   prev.addEventListener('click', () => {
     currentIndex--; // 現在のスライドを1つ戻す
     updateButtons(); // スライドを移動するたびにUIの状態を更新
+    updateDots(); // スライドを移動するたびに丸ボタンも更新
     moveSlides(); // 関数にまとめたのでここで呼び出し
   });
 }
