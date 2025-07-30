@@ -100,4 +100,9 @@
     updateDots(); // スライドを移動するたびに丸ボタンも更新
     moveSlides(); // 関数にまとめたのでここで呼び出し
   });
+
+  window.addEventListener('resize', () => {
+    moveSlides();
+    // 画面幅が変わったらリサイズする
+  });
 }
