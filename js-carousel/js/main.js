@@ -51,6 +51,21 @@
       // （画像の数＝slides.length）
       const button = document.createElement('button');
       // <button>要素をJavaScriptで生成（DOM生成）
+      button.addEventListener('click', () => {
+        // 丸ボタンをクリックした際の処理
+        currentIndex = i;
+        // i番目の画像を表示
+        dots.forEach(dot => {
+          dot.classList.remove('current');
+        });
+        // dotsの全ての要素に対してcurrentクラスを削除
+        dots[currentIndex].classList.add('current');
+        // 今クリックされたボタンにだけcurrentクラスを付ける
+        updateButtons();
+        // ボタンの状態（表示/非表示）を更新
+        moveSlides();
+        // スライドを移動させる
+      });
       dots.push(button);
       // 作ったボタンに後で処理を設定できるようにdotsに格納
       // push = 配列の末尾に新しい要素を追加する
