@@ -9,6 +9,9 @@
   // スライド全体（ul）を取得
   const slides = ul.children;
   // ul内のli要素たちを配列っぽく取得（HTMLCollection）
+  const dots = [];
+  // ボタンを格納するための配列を宣言
+  // （丸いボタンを動的に生成する準備）
   let currentIndex = 0;
   // 現在表示中のスライドのインデックス（最初は0）
 
@@ -42,8 +45,22 @@
     // -1倍してるのは「左に移動」だから（正だと右に動く）
   }
 
+  function setupDots() {
+    for(let i = 0; i < slides.length; i++) {
+      // 画像の数だけボタンを作るためループを回す
+      // （画像の数＝slides.length）
+      const button = document.createElement('button');
+      // 丸いボタンを生成
+      dots.push(button);
+      // 作ったボタンに対してあとで処理を設定できるようにdotsに格納
+      document.querySelector('nav').appendChild(button);
+      dots[0].classList.add('current');
+    }
+  }
+
   updateButtons();
   // ボタンの状態（表示/非表示）を更新
+  setupDots();
 
   next.addEventListener('click', () => {
     currentIndex++; // 現在のスライドを1つ進める
