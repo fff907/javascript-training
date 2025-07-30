@@ -71,8 +71,8 @@ nav {
   text-align: center;
 }
 
-/* navのbuttonに続くbutton
-　=カルーセルの丸ボタンに対して */
+/* navのbuttonに続くbutton（+は隣接セレクタ）
+　=カルーセルの2つ目以降のボタンだけ */
 nav button + button {
   margin-left: 8px;
 }

@@ -50,13 +50,15 @@
       // 画像の数だけボタンを作るためループを回す
       // （画像の数＝slides.length）
       const button = document.createElement('button');
-      // 丸いボタンを生成
+      // <button>要素をJavaScriptで生成（DOM生成）
       dots.push(button);
       // 作ったボタンに後で処理を設定できるようにdotsに格納
+      // push = 配列の末尾に新しい要素を追加する
       document.querySelector('nav').appendChild(button);
-      // ボタンをページに追加
+      // <nav>タグの中にボタンを追加
+      // appendChild = 指定の親要素の子要素として末尾に追加
       dots[0].classList.add('current');
-      // 最初の丸いボタンにcurrentクラスを付ける
+      // 最初の丸いボタンにcurrentクラスを付けて強調表示
     }
   }
 
