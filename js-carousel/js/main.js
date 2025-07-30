@@ -52,15 +52,18 @@
       const button = document.createElement('button');
       // 丸いボタンを生成
       dots.push(button);
-      // 作ったボタンに対してあとで処理を設定できるようにdotsに格納
+      // 作ったボタンに後で処理を設定できるようにdotsに格納
       document.querySelector('nav').appendChild(button);
+      // ボタンをページに追加
       dots[0].classList.add('current');
+      // 最初の丸いボタンにcurrentクラスを付ける
     }
   }
 
   updateButtons();
   // ボタンの状態（表示/非表示）を更新
   setupDots();
+  // ページが読み込んだ時に丸ボタンの動作を実行
 
   next.addEventListener('click', () => {
     currentIndex++; // 現在のスライドを1つ進める
