@@ -12,6 +12,6 @@
     // * を連結しグラフにする(配列内の数だけ * が出力される)
     // 上記処理を短く書くと、.repeat();
     const bar = '*'.repeat(count);
-    console.log(`${label}: ${bar}`);
+    console.log(`${count}: ${bar}`);
   });
 }
