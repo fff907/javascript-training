@@ -5,11 +5,11 @@
     console.log('Header');
   }
 
-  function showHeader () {
+  function showUsers () {
     console.log('Users');
   }
 
-  function showHeader () {
+  function Footer () {
     console.log('Footer');
   }
 
