@@ -9,7 +9,7 @@
     console.log('Users');
   }
 
-  function Footer () {
+  function showFooter () {
     console.log('Footer');
   }
 
