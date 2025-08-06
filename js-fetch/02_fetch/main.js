@@ -1,10 +1,12 @@
 'use strict';
 
 {
+  // 関数宣言A(巻き上げ可能)
   function showHeader () {
     console.log('Header');
   }
 
+  // 関数式B(巻き上げ不可)
   const showUsers = async() => {
     // 関数式の場合のasyncの位置は()の前。
     // 関数宣言を使うか関数式を使うかは、
@@ -33,13 +35,14 @@
       console.log('Error log: ' + err); // 開発中用のエラー出力
     }
   };
-    
+
+  // 関数宣言C(巻き上げ可能)
   function showFooter () {
     console.log('Footer');
   }
 
-  showHeader();
-  showUsers();
-  showFooter();
+  showHeader(); // 関数呼び出しA
+  showUsers(); // 関数呼び出しB
+  showFooter(); // 関数呼び出しC
 
 }
