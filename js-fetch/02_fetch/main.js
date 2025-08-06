@@ -5,7 +5,8 @@
     console.log('Header');
   }
 
-  async function showUsers() {
+  const showUsers = async() => {
+    // 関数式の場合のasyncの位置は()の前
     try {
       // fetchのリンク先データに""を忘れている等、
       // 予期せぬエラーに備えてtry{} catch(err) {}を使う。
@@ -27,8 +28,8 @@
       console.log('Something went wrong getting user data');
       console.log('Error log: ' + err); // 開発中用のエラー出力
     }
+  };
     
-
   function showFooter () {
     console.log('Footer');
   }
@@ -36,5 +37,5 @@
   showHeader();
   showUsers();
   showFooter();
-  }
+
 }
