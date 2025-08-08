@@ -6,7 +6,6 @@
   {
     // undefinedが出るコード
     // （関数にreturnを書かなかった時の返り値以外の例）
-    // undefinedは値が定義されているかどうかのチェックによく使われる
 
     // let x;
     // console.log(x);　宣言されただけの変数の値
@@ -21,5 +20,6 @@
     if (score.history === undefined) {
       console.log('History score not defined!');
     }
+    // undefinedは値が定義されているかどうかのチェックによく使われる
   }
 }
