@@ -8,7 +8,7 @@
   btn.addEventListener('click', ()=> {
     const endTime = new Date().getTime() + 3 * 1000; 
     // new Date(現在の日時を求める)
-    // ＋getTime(基準日から経過ミリ秒を表す整数値に変換後 計算)
+    // ＋getTime(基準日から経過ミリ秒を表す整数値に変換して計算)
     // ＋カウントダウンの時間分 * 1000(ミリ秒に単位を揃える)
   });
 
