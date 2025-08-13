@@ -1,6 +1,6 @@
 'use strict';
 
 {
-  const timer = document.getElementById('timer');
-  const btn = document.getElementById('btn');
+  const timer = document.querySelector('#timer');
+  const btn = document.querySelector('#btn');
 }
