@@ -30,7 +30,7 @@
 
   // (1) 終了時刻を求める
   btn.addEventListener('click', ()=> {
-    const endTime = new Date().getTime() + 3 * 1000; 
+    endTime = new Date().getTime() + 3 * 1000; 
     // new Date(現在の日時を求める
     // ※ここではスタートボタンを押した時の時刻)
     // ＋getTime(基準日から経過ミリ秒を表す整数値に変換して計算)
