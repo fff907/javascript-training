@@ -18,8 +18,21 @@
       // タイマー終了後に時間を戻す
     }
 
-    timer.textContent = countdown;
+    // ミリ秒では見づらいので、分と秒表示に変換
+    const totalSeconds = Math.floor(countdown / 1000);
+    // 小数点以下の値を切り捨てるためにMath.floor()で囲み、
+    // ミリ秒であるcountdownを1000で割れば秒になる
+    // ↓ 計算方法
+    // 80秒 → 1分20秒
+    // 80 ÷ 60 = 1 余り 20
+    // 80 / 60 = 1.33333.... → 1
+    // 80 % 60 = 20　(復習：%で余りを出せる)
+    const minutes = Math.floor(totalSeconds / 60); // 分
+    const seconds = totalSeconds % 60; // 秒
+
+    timer.textContent = `${minutes}:${seconds}`;
     // ブラウザにカウントダウンを表示させる
+    // '：'があるのでテンプレートリテラル使用
   }
 
   const timer = document.querySelector('#timer');
