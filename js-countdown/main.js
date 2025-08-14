@@ -16,6 +16,9 @@
       // intervalId：setInterval()を識別するための識別子
       countdown = 3 * 1000;
       // タイマー終了後に時間を戻す
+
+      // （5）タイマーが終了した時に再びボタンを押せるようにする
+      btn.disabled = false;
     }
 
     // ミリ秒では見づらいので、分と秒表示に変換
@@ -30,7 +33,15 @@
     const minutes = Math.floor(totalSeconds / 60); // 分
     const seconds = totalSeconds % 60; // 秒
 
-    timer.textContent = `${minutes}:${seconds}`;
+    // 分と秒を2桁表示にする
+    // ＝minutesとsecondsを整形し直した文字列を作る
+    const minutesFormatted = String(minutes).padStart(2, '0');
+    const secondsFormatted = String(seconds).padStart(2, '0');
+    // padStart()：2桁で表示してその桁に満たなかったら、
+    // 文字列の前を0で埋める
+    // padStart()は文字列にしか使えないので、String()で変数を囲む
+
+    timer.textContent = `${minutesFormatted}:${secondsFormatted}`;
     // ブラウザにカウントダウンを表示させる
     // '：'があるのでテンプレートリテラル使用
   }
@@ -48,6 +59,10 @@
     // ※ここではスタートボタンを押した時の時刻)
     // ＋getTime(基準日から経過ミリ秒を表す整数値に変換して計算)
     // ＋カウントダウンの時間分 * 1000(ミリ秒に単位を揃える)
+
+    //（4）一度ボタンをクリックしたら、
+    // タイマーが終了するまでボタンを押せないようにする
+    btn.disabled = true;
 
     // (2) 残り時間を求める  
     // →残り時間を計算する関数を作り、
