@@ -19,6 +19,7 @@
 
       // （5）タイマーが終了した時に再びボタンを押せるようにする
       btn.disabled = false;
+      btn.classList.remove('inactive');
     }
 
     // ミリ秒では見づらいので、分と秒表示に変換
@@ -63,6 +64,7 @@
     //（4）一度ボタンをクリックしたら、
     // タイマーが終了するまでボタンを押せないようにする
     btn.disabled = true;
+    btn.classList.add('inactive');
 
     // (2) 残り時間を求める  
     // →残り時間を計算する関数を作り、
