@@ -11,3 +11,27 @@ h1 {
   border-bottom: 1px solid #ccc;
   padding-bottom: 8px;
 }
+
+h2 {
+  font-size: 16px;
+}
+
+li {
+  cursor: pointer;
+}
+
+.correct {
+  color: green;
+}
+
+.correct::after {
+  content: ' - 正解！';
+}
+
+.wrong {
+  color: red;
+}
+
+.wrong::after {
+  content: ' - 不正解...';
+}
