@@ -9,9 +9,11 @@
     h2.textContent = quiz[0];
 
     section.appendChild(h2);
-    // HTMLの`<section>`タグ内に`<h2>1の正解は？</h2>`が生成される
+    // ➁下記`main.appendChild(section);`で生成した
+    // `<section></section>`タグ内に
+    // `<h2>1の正解は？</h2>`が生成される
     main.appendChild(section);
-    // HTMLの`</main>`の直前に`<section></section>`が生成される
+    // ➀HTMLの`</main>`の直前に`<section></section>`が生成される
   }
 
   // 問題文, 選択肢, 選択肢, 選択肢, 正解(0, 1, 2)
