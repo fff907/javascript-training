@@ -11,10 +11,31 @@
     const ul = document.createElement('ul');
     const li0 = document.createElement('li');
     li0.textContent = quiz[1]; // 選択肢Aを代入
+    li0.addEventListener('click', () => {
+      if (quiz[4] === 0) {  // 回答が0なら
+        li0.classList.add('correct'); // 正解
+      } else { // それ以外は
+        li0.classList.add('wrong'); // 不正解　
+      }
+    });
     const li1 = document.createElement('li');
     li1.textContent = quiz[2]; // 選択肢Bを代入
+    li1.addEventListener('click', () => {
+      if (quiz[4] === 1) {  // 回答が1なら
+        li1.classList.add('correct'); // 正解
+      } else { // それ以外は
+        li1.classList.add('wrong'); // 不正解
+      }
+    });
     const li2 = document.createElement('li');
     li2.textContent = quiz[3]; // 選択肢Cを代入
+    li2.addEventListener('click', () => {
+      if (quiz[4] === 2) {  // 回答が2なら
+        li2.classList.add('correct'); // 正解
+      } else { // それ以外は
+        li2.classList.add('wrong'); // 不正解
+      }
+    });
 
     ul.appendChild(li0);
     ul.appendChild(li1);
