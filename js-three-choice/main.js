@@ -9,7 +9,12 @@
     h2.textContent = quiz[0];
 
     const ul = document.createElement('ul');
-    const li = document.createElement('li');
+    const li0 = document.createElement('li');
+    li0.textContent = quiz[1]; // 選択肢Aを代入
+    const li1 = document.createElement('li');
+    li1.textContent = quiz[2]; // 選択肢Bを代入
+    const li2 = document.createElement('li');
+    li2.textContent = quiz[3]; // 選択肢Cを代入
 
     section.appendChild(h2);
     // ➁下記`main.appendChild(section);`で生成した
