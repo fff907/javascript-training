@@ -60,7 +60,7 @@
     ['3の正解は？', '選択肢 A', '選択肢 B', '選択肢 C', 2],
   ];
   
-  render(quizzes[0]);
-  render(quizzes[1]);
-  render(quizzes[2]);
+  quizzes.forEach((quiz) => {
+    render(quiz);
+  });
 }
