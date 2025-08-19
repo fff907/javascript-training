@@ -16,6 +16,10 @@
     const li2 = document.createElement('li');
     li2.textContent = quiz[3]; // 選択肢Cを代入
 
+    ul.appendChild(li0);
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+
     section.appendChild(h2);
     // ➁下記`main.appendChild(section);`で生成した
     // `<section></section>`タグ内に
