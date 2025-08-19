@@ -9,6 +9,7 @@
     h2.textContent = quiz[0];
 
     const ul = document.createElement('ul');
+    const li = document.createElement('li');
 
     section.appendChild(h2);
     // ➁下記`main.appendChild(section);`で生成した
