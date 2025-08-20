@@ -28,4 +28,13 @@ button {
 
 span {
   font-size: 14px;
+  margin-right: auto;
+  opacity: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
 }
