@@ -6,6 +6,7 @@
   const reset = document.querySelector('#reset');
 
   let startTime;
+  let timeoutId;
 
   function countUp() {
     const d = new Date(Date.now() - startTime);
@@ -29,4 +30,11 @@
     countUp();
   });
 
+  stop.addEventListener('click', () => {
+    clearTimeout(timeoutId);
+  });
+
+  reset.addEventListener('click', () => {
+    timer.textContent = '00:00.000';
+  });
 }
