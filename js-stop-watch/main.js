@@ -20,7 +20,7 @@
     timer.textContent = `${m}:${s}.${ms}`;
     // テンプレートリテラルで00:00:000表示にする
 
-    setTimeout(() => {
+    timeoutId = setTimeout(() => {
       countUp();
     }, 10);
   }
