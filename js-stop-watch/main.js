@@ -44,18 +44,27 @@
     reset.disabled = false;
   }
 
+  setButtonStateInitial();
+  // ページを読み込んですぐにボタンを初期状態にする
+
   start.addEventListener('click', () => {
+    setButtonStateRunning();
+    // スタートボタン押下時にボタンを稼働状態にする
     startTime = Date.now();
     countUp();
   });
 
   stop.addEventListener('click', () => {
+    setButtonStateStopped();
+    // ストップボタン押下時にボタンを停止状態にする
     clearTimeout(timeoutId);
     elapsedTime += Date.now() - startTime;
     // スタートしてから今までの時間＋`elapsedTime`＝合計時間
   });
 
   reset.addEventListener('click', () => {
+    setButtonStateInitial();
+    // リセットボタン押下時にボタンを初期状態にする
     timer.textContent = '00:00.000';
     elapsedTime = 0;
     // リセットボタン押下時に経過時間も0にする
