@@ -7,10 +7,11 @@
 
   let startTime;
   let timeoutId;
+  let elapsedTime = 0;
 
   function countUp() {
-    const d = new Date(Date.now() - startTime);
-    // dateのd。経過ミリ秒から開始時間を引く。
+    const d = new Date(Date.now() - startTime + elapsedTime);
+    // dateのd。再開してからの時間＋それまでに記録してた時間＝通算の経過時間
     const m = String(d.getMinutes()).padStart(2, '0');
     // minuteのm。padStartで2桁表示に。文字列用の関数なのでStringで囲んでおく
     const s = String(d.getSeconds()).padStart(2, '0');
@@ -32,9 +33,13 @@
 
   stop.addEventListener('click', () => {
     clearTimeout(timeoutId);
+    elapsedTime += Date.now() - startTime;
+    // スタートしてから今までの時間＋`elapsedTime`＝合計時間
   });
 
   reset.addEventListener('click', () => {
     timer.textContent = '00:00.000';
+    elapsedTime = 0;
+    // リセットボタン押下時に経過時間も0にする
   });
 }
