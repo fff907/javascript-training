@@ -26,6 +26,24 @@
     }, 10);
   }
 
+  function setButtonStateInitial() { // 初期状態
+    start.disabled = false;
+    stop.disabled = true;
+    reset.disabled = true;
+  }
+
+  function setButtonStateRunning() { // 稼働状態
+    start.disabled = true;
+    stop.disabled = false;
+    reset.disabled = true;
+  }
+
+  function setButtonStateStopped() { // 停止状態
+    start.disabled = false;
+    stop.disabled = true;
+    reset.disabled = false;
+  }
+
   start.addEventListener('click', () => {
     startTime = Date.now();
     countUp();
