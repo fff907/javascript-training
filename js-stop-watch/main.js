@@ -48,6 +48,9 @@
   // ページを読み込んですぐにボタンを初期状態にする
 
   start.addEventListener('click', () => {
+    if (start.classList.contains('inactive') === true) {
+      return;
+    }
     setButtonStateRunning();
     // スタートボタン押下時にボタンを稼働状態にする
     startTime = Date.now();
@@ -55,6 +58,9 @@
   });
 
   stop.addEventListener('click', () => {
+    if (stop.classList.contains('inactive') === true) {
+      return;
+    }
     setButtonStateStopped();
     // ストップボタン押下時にボタンを停止状態にする
     clearTimeout(timeoutId);
@@ -63,6 +69,9 @@
   });
 
   reset.addEventListener('click', () => {
+    if (reset.classList.contains('inactive') === true) {
+      return;
+    }
     setButtonStateInitial();
     // リセットボタン押下時にボタンを初期状態にする
     timer.textContent = '00:00.000';
