@@ -29,6 +29,9 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  /* リスト項目の文量が増えると、×ボタンが
+  フレックスアイテムの高さいっぱいに広がってしまうので、
+  ボタンが上の方に配置されるように開始位置に揃える */
   margin-top: 16px;
 }
 
