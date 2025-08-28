@@ -59,13 +59,15 @@
 
   document.querySelector('#add-form').addEventListener('submit', (e) => {
     e.preventDefault(); // ページ遷移を防ぐ
+    const input = document.querySelector('#add-form input');
     const todo = {
-      title: document.querySelector('#add-form input').value,  // 入力されたテキスト
+      title: input.value,  // 入力されたテキスト
       isCompleted: false, // まだ完了していないタスク
     };
     renderTodo(todo); // タスクを画面に追加
+    input.value = ''; // 入力された値を消す
+    input.focus(); // フォームをフォーカスする
   });
-
 
   renderTodos();
   // ページを読み込んだ時点で、
