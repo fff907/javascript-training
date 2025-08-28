@@ -38,6 +38,14 @@
     // 削除用の<button>要素を作成
     button.textContent = 'x';
     // ボタンの中に「x」という文字を表示
+    button.addEventListener('click', () => {
+      // 削除ボタンの処理
+      // if (confirm('Sure?') === false) {
+      if (!confirm('Sure?')) { // 消す前に確認
+          return;
+      }
+      li.remove();
+    });
     const li = document.createElement('li');
     // labelとbuttonをまとめる<li>を作成
     li.appendChild(label);
