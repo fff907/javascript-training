@@ -57,6 +57,16 @@
   // todos配列（初期状態で3件）を1件ずつ取り出して、
   // renderTodo()関数を呼び出して表示する
 
+  document.querySelector('#add-form').addEventListener('submit', (e) => {
+    e.preventDefault(); // ページ遷移を防ぐ
+    const todo = {
+      title: document.querySelector('#add-form input').value,  // 入力されたテキスト
+      isCompleted: false, // まだ完了していないタスク
+    };
+    renderTodo(todo); // タスクを画面に追加
+  });
+
+
   renderTodos();
   // ページを読み込んだ時点で、
   // 初期のTodo3件（aaa, bbb, ccc）を表示させる
