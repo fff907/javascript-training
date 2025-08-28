@@ -80,4 +80,8 @@
   renderTodos();
   // ページを読み込んだ時点で、
   // 初期のTodo3件（aaa, bbb, ccc）を表示させる
+
+  localStorage.setItem('message', 'hello');
+  console.log(localStorage.getItem('message'));
+  // 再読み込みしても入力データが消えないよう処理
 }
