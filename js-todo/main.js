@@ -2,7 +2,7 @@
 
 {
   const todos = [
-    {title: 'aaa', isCompleted: false},
+    {title: 'aaa', isCompleted: false}, // ←この1つが "todo"
     {title: 'bbb', isCompleted: false},
     {title: 'ccc', isCompleted: false},
   ];
@@ -49,6 +49,7 @@
 
   const renderTodos = () => {
     todos.forEach((todo) => {
+      // todo = {title: 'aaa', isCompleted: false} 
       renderTodo(todo);
     });
   };
