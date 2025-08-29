@@ -1,12 +1,26 @@
 'use strict';
 
 {
-  const todos = [
-    {title: 'aaa', isCompleted: false}, // ←この1つが "todo"
-    {title: 'bbb', isCompleted: true},
-    {title: 'ccc', isCompleted: false},
-    {title: 'ddd', isCompleted: false}
-  ];
+  // const todos = [
+  //   {title: 'aaa', isCompleted: false}, // ←この1つが "todo"
+  //　 {title: 'bbb', isCompleted: true},
+  //   {title: 'ccc', isCompleted: false},
+  //   {title: 'ddd', isCompleted: false}
+  // ]; ↓配列データをlocalStorage仕様に書き替える↓
+
+  let todos;
+  // todosという変数だけを先に用意
+  // あとで保存済みのデータを代入するためlet
+
+  if (localStorage.getItem('todos') === null) {
+    todos = [];
+    // localStorageにtodosという保存データが
+    // まだ存在していなければ、空の配列を代入
+  } else {
+    todos = JSON.parse(localStorage.getItem('todos'));
+    // localStorageに保存されていたデータがあれば、
+    // それを元の配列に戻して代入する
+  }
 
   const renderTodo = (todo) => {
     // todoオブジェクトを引数にとる関数
@@ -73,6 +87,12 @@
       isCompleted: false, // まだ完了していないタスク
     };
     renderTodo(todo); // タスクを画面に追加
+    todos.push(todo);
+    // ユーザーがフォームに入力したタスク`todo`を、
+    // 現在のタスクリスト(`todos`配列)に追加 
+    localStorage.setItem('todos', JSON.stringify(todos));
+    // `todos`配列を JSON文字列に変換して
+    // ブラウザの中（localStorage）に保存
     input.value = ''; // 入力された値を消す
     input.focus(); // フォームをフォーカスする
   });
