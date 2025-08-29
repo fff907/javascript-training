@@ -89,7 +89,7 @@
     renderTodo(todo); // タスクを画面に追加
     todos.push(todo);
     // ユーザーがフォームに入力したタスク`todo`を、
-    // 現在のタスクリスト(`todos`配列)に追加 
+    // 現在のタスクリスト(`todos`配列)の末尾に追加 
     localStorage.setItem('todos', JSON.stringify(todos));
     // `todos`配列を JSON文字列に変換して
     // ブラウザの中（localStorage）に保存
