@@ -61,8 +61,11 @@
       li.remove();
       todos = todos.filter((item) => {
         return item.id !== todo.id;
+        // todos配列から「クリックされたタスク以外」を抽出して再構築
+        // item.id（既存データ）とtodo.id（削除対象）を比較
       });
       localStorage.setItem('todos', JSON.stringify(todos));
+      // 再構築されたtodos配列をlocalStorageに上書き保存
     });
     const li = document.createElement('li');
     // labelとbuttonをまとめる<li>を作成
