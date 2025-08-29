@@ -59,6 +59,10 @@
           return;
       }
       li.remove();
+      todos = todos.filter((item) => {
+        return item.id !== todo.id;
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
     });
     const li = document.createElement('li');
     // labelとbuttonをまとめる<li>を作成
@@ -83,6 +87,7 @@
     e.preventDefault(); // ページ遷移を防ぐ
     const input = document.querySelector('#add-form input');
     const todo = {
+      id: Date.now(), // UNIXタイムスタンプを追加
       title: input.value,  // 入力されたテキスト
       isCompleted: false, // まだ完了していないタスク
     };
@@ -90,8 +95,9 @@
     todos.push(todo);
     // ユーザーがフォームに入力したタスク`todo`を、
     // 現在のタスクリスト(`todos`配列)の末尾に追加 
+    console.table(todos); // 表形式でコンソールを出す
     localStorage.setItem('todos', JSON.stringify(todos));
-    // `todos`配列を JSON文字列に変換して
+    // `todos`配列をJSON文字列に変換して
     // ブラウザの中（localStorage）に保存
     input.value = ''; // 入力された値を消す
     input.focus(); // フォームをフォーカスする
