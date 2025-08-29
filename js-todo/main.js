@@ -66,6 +66,7 @@
       });
       localStorage.setItem('todos', JSON.stringify(todos));
       // 再構築されたtodos配列をlocalStorageに上書き保存
+      // 削除後の最新状態のtodosをlocalStorageに保存しなおすため
     });
     const li = document.createElement('li');
     // labelとbuttonをまとめる<li>を作成
@@ -101,7 +102,7 @@
     console.table(todos); // 表形式でコンソールを出す
     localStorage.setItem('todos', JSON.stringify(todos));
     // `todos`配列をJSON文字列に変換して
-    // ブラウザの中（localStorage）に保存
+    // ブラウザの中（localStorage）に保存(新しいタスクを追加した時用)
     input.value = ''; // 入力された値を消す
     input.focus(); // フォームをフォーカスする
   });
