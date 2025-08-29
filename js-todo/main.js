@@ -2,8 +2,8 @@
 
 {
   // const todos = [
-  //   {title: 'aaa', isCompleted: false}, // ←この1つが "todo"
-  //　 {title: 'bbb', isCompleted: true},
+  //   {title: 'aaa', isCompleted: false},  ←この1つが "todo"
+  //   {title: 'bbb', isCompleted: true},
   //   {title: 'ccc', isCompleted: false},
   //   {title: 'ddd', isCompleted: false}
   // ]; ↓配列データをlocalStorage仕様に書き替える↓
