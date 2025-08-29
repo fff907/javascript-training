@@ -84,5 +84,5 @@
   localStorage.setItem('todos', JSON.stringify(todos));
   console.log(JSON.parse(localStorage.getItem('todos')));
   // 再読み込みしても入力データが消えないよう処理
-  // 配列データを渡すには`JSON.stringify()`でJSON形式に変換
+  // 配列データを渡すためJSON形式に変換
 }
