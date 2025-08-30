@@ -39,6 +39,20 @@
     // <input>のタイプをチェックボックスに指定
     input.checked = todo.isCompleted;
     // Todoの完了状態（true/false）に応じてチェック状態にする
+    input.addEventListener('change', () => {
+      // チェックボックスの状態（ON/OFF）が変わったときに実行
+      todos.forEach((item) => {
+        // todos配列の中の各タスク（item）を1つずつ取り出す
+        if (item.id === todo.id) {
+          // 表示中のtodo（引数）と一致するidを持つitemを探す
+          item.isCompleted = !item.isCompleted;
+          // isCompletedの状態を反転（true⇔false）させる
+          // チェックを入れる or 外すの切り替えを反映
+        }
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
+      // todos配列全体をlocalStorageに保存しなおす（変更を永続化）
+    });
     const span = document.createElement('span');
     // タスクタイトル（例："aaa"）を表示するためのテキスト用の<span>を作成
     span.textContent = todo.title;
