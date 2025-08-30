@@ -129,6 +129,9 @@
   });
 
   document.querySelector('#purge').addEventListener('click', () => {
+    if (!confirm('Sure?')) { // 消す前に確認
+      return;
+    }
     todos = todos.filter((todo) => {
       // todos配列の中から「完了していない
       // （isCompleted === false）」ものだけを抽出して上書きする
@@ -138,6 +141,12 @@
     saveTodos();
     // localStorage.setItem('todos', JSON.stringify(todos));
     // 残ったtodosをlocalStorageに保存（削除を反映させる）
+    document.querySelectorAll('#todos li').forEach((li) => {
+      li.remove();
+      // 現在画面に表示されているすべての<li>（タスク表示）を一旦全削除
+    });
+    renderTodos();
+    // localStorageから再取得 → 未完了タスクだけを画面に再表示する
   });
 
   renderTodos();
