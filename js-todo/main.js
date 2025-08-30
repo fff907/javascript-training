@@ -22,6 +22,10 @@
     // それを元の配列に戻して代入する
   }
 
+  const saveTodos = () => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+
   const renderTodo = (todo) => {
     // todoオブジェクトを引数にとる関数
     // HTML内に「1つ分のTodo項目」を追加する
@@ -50,7 +54,8 @@
           // チェックを入れる or 外すの切り替えを反映
         }
       });
-      localStorage.setItem('todos', JSON.stringify(todos));
+      saveTodos();
+      // localStorage.setItem('todos', JSON.stringify(todos));
       // todos配列全体をlocalStorageに保存しなおす（変更を永続化）
     });
     const span = document.createElement('span');
@@ -78,7 +83,8 @@
         // todos配列から「クリックされたタスク以外」を抽出して再構築
         // item.id（既存データ）とtodo.id（削除対象）を比較
       });
-      localStorage.setItem('todos', JSON.stringify(todos));
+      saveTodos();
+      // localStorage.setItem('todos', JSON.stringify(todos));
       // 再構築されたtodos配列をlocalStorageに上書き保存
       // 削除後の最新状態のtodosをlocalStorageに保存しなおすため
     });
@@ -114,11 +120,20 @@
     // ユーザーがフォームに入力したタスク`todo`を、
     // 現在のタスクリスト(`todos`配列)の末尾に追加 
     console.table(todos); // 表形式でコンソールを出す
-    localStorage.setItem('todos', JSON.stringify(todos));
+    saveTodos();
+    // localStorage.setItem('todos', JSON.stringify(todos));
     // `todos`配列をJSON文字列に変換して
     // ブラウザの中（localStorage）に保存(新しいタスクを追加した時用)
     input.value = ''; // 入力された値を消す
     input.focus(); // フォームをフォーカスする
+  });
+
+  document.querySelector('#purge').addEventListener('click', () => {
+    todos = todos.filter((todo) => {
+      return todo.isCompleted === false;
+    });
+    saveTodos();
+    // localStorage.setItem('todos', JSON.stringify(todos));
   });
 
   renderTodos();
