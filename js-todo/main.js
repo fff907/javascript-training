@@ -130,18 +130,17 @@
 
   document.querySelector('#purge').addEventListener('click', () => {
     todos = todos.filter((todo) => {
+      // todos配列の中から「完了していない
+      // （isCompleted === false）」ものだけを抽出して上書きする
       return todo.isCompleted === false;
+      // チェックがついていないものだけを残す（trueは削除される）
     });
     saveTodos();
     // localStorage.setItem('todos', JSON.stringify(todos));
+    // 残ったtodosをlocalStorageに保存（削除を反映させる）
   });
 
   renderTodos();
   // ページを読み込んだ時点で、
-  // 初期のTodo3件（aaa, bbb, ccc）を表示させる
-
-  localStorage.setItem('todos', JSON.stringify(todos));
-  console.log(JSON.parse(localStorage.getItem('todos')));
-  // 再読み込みしても入力データが消えないよう処理
-  // 配列データを渡すためJSON形式に変換
+  // localStorage に保存されている Todo をすべて画面に表示する
 }
