@@ -27,13 +27,28 @@
       };
 
       const App = () => {
+        // menusとして定義し配列化
+        const menus = [
+          {name: '牛丼', price: 400},
+          {name: 'カレー', price: 500},
+          {name: 'サラダ', price: 300},
+        ];
+
+        const menuItems = menus.map((menu) => {
+          return (
+            <Menu 
+              name={menu.name}
+              price={menu.price}
+            />
+          );
+        });
+
         return (
           <>
             <h1>メニュー</h1>
             <ul className="menus">
-              <Menu name="牛丼" price="400" />
-              <Menu name="カレー" price="500" />
-              <Menu name="サラダ" price="300" />
+            // 関数化したのでこの辺りの記述を省略できる
+              {menuItems}
             </ul>
             <p>合計: 0円</p>
           </>
