@@ -17,8 +17,9 @@
 
     {
       const Menu = (props) => {
+        // ボタンをクリックすると個数が変化する機能を追加(値保持の機能)
         const [count, setCount] = React.useState(0);
-        
+
         return (
           <li>
             <button>-</button>
