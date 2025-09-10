@@ -17,31 +17,26 @@
 
     {
       const Menu = (props) => {
-        // ボタンをクリックすると個数が変化する機能を追加(値保持の機能)
-        const [count, setCount] = React.useState(0);
-        // onClick={}へ渡すための個数増減関数
+  
         const decrement = () => {
-          if (count > 0) {
-            setCount(count - 1);
-          }
         };
-        const increment = () => {
-          setCount(count + 1);
-          // setCount((prevCount) => { return prevCount + 1; });
-          // setCount((prevCount) => { return prevCount + 1; });
-          // prevCount(任意の変数追加)で、個数をまとめて増やす(上記の場合は3ずつ)
+        const increment = () => {          
         };
 
         return (
           <li>
             <button onClick={decrement}>-</button>
             <button onClick={increment}>+</button>
-            {props.name} ({props.price}円 ☓ {count}個) {/* 個数管理のcount */}
+            {props.name} ({props.price}円 ☓ {props.count}個)
+            {/* 個数管理のcount、ここにもpropsを付ける */}
           </li>
         );
       };
 
       const App = () => {
+        // Menuコンポーネントからの移動、初期値は[0,0,0]
+        // 3メニュー分まとめて親(Appコンポーネント)が持つ
+        const [count, setCount] = React.useState([0, 0, 0]);
         // menusとして定義し配列化
         const menus = [
           {id: 0, name: '牛丼', price: 400},
@@ -54,6 +49,7 @@
           return (
             <Menu
               key={menu.id} // keyを追加
+              count={counts[menu.id]}  // conntを追加
               name={menu.name}
               price={menu.price}
             />
