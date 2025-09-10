@@ -43,6 +43,11 @@
           {id: 1, name: 'カレー', price: 500},
           {id: 2, name: 'サラダ', price: 300},
         ];
+        // 合計金額を出す関数
+        const total = 
+          (menus[0].price * counts[0]) + 
+          (menus[1].price * counts[1]) + 
+          (menus[2].price * counts[2]);
 
         // 配列をmapで自動化
         const menuItems = menus.map((menu) => {
