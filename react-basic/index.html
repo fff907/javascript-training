@@ -21,7 +21,8 @@
         const decrement = () => {
           props.onDecrement(); // -ボタンを動作させる関数の実行
         };
-        const increment = () => {          
+        const increment = () => {
+          props.onIncrement(); // +ボタンを動作させる関数の実行
         };
 
         return (
@@ -53,6 +54,10 @@
         const decrementMenu = () => {
           console.log('minus button clicked!');
         };
+        // +ボタンを動作させる関数
+        const incrementMenu = () => {
+          console.log('plus button clicked!');
+        };
 
         // 配列をmapで自動化
         const menuItems = menus.map((menu) => {
@@ -63,6 +68,7 @@
               name={menu.name}
               price={menu.price}
               onDecrement={decrementMenu} // onDecrement追加
+              onIncrement={incrementMenu} // onIncrement追加
             />
           );
         });
