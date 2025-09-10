@@ -27,6 +27,9 @@
         };
         const increment = () => {
           setCount(count + 1);
+          setCount((prevCount) => { return prevCount + 1; });
+          setCount((prevCount) => { return prevCount + 1; });
+          // 上記で、個数を3個ずつ増やす
         };
 
         return (
