@@ -19,11 +19,20 @@
       const Menu = (props) => {
         // ボタンをクリックすると個数が変化する機能を追加(値保持の機能)
         const [count, setCount] = React.useState(0);
+        // onClick={}へ渡すための個数増減関数
+        const decrement = () => {
+          if (count > 0) {
+            setCount(count - 1);
+          }
+        };
+        const increment = () => {
+          setCount(count + 1);
+        };
 
         return (
           <li>
-            <button>-</button>
-            <button>+</button>
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
             {props.name} ({props.price}円 ☓ {count}個) {/* 個数管理のcount */}
           </li>
         );
