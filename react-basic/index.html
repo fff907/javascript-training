@@ -17,7 +17,6 @@
 
     {
       const Menu = (props) => {
-  
         const decrement = () => {
           props.onDecrement(props.menuId); // -ボタンを動作させる関数の実行
           // props.menuIdを渡す
@@ -47,6 +46,7 @@
           {id: 2, name: 'サラダ', price: 300},
         ];
         // 合計金額を出す関数
+        // menusのpriceと対応するcountsの個数を掛け合わせたものを足す
         const total = 
           (menus[0].price * counts[0]) + 
           (menus[1].price * counts[1]) + 
@@ -61,13 +61,17 @@
           // countsの要素を展開すれば、コピーを作ることができる
           // そして、newCountsのうち、
           // クリックされたメニューに対応する要素としてmenuIdを追加
-          const newCounts = [...counts];
-          newCounts[menuId]--; // --で'menuId番目の要素の値を1減らす'
-          setCounts(newCounts); // countsを更新されたnewCountsで更新
+          // 加えて、個数、合計金額が-の値にならないようif文を追記、
+          // ここまでに書いた3つの処理を包む
+          if (counts[menuId] > 0) {
+            const newCounts = [...counts];
+            newCounts[menuId]--; // --で'menuId番目の要素の値を1減らす'
+            setCounts(newCounts); // countsを更新されたnewCountsで更新
+          }
         };
         // +ボタンを動作させる関数
         const incrementMenu = () => {
-          
+        
         };
 
         // 配列をmapで自動化
@@ -80,12 +84,12 @@
               name={menu.name}
               price={menu.price}
               onDecrement={decrementMenu} // onDecrement追加
-              onIncrement={incrementMenu} // onIncrement追加
+              onIncrement={IncrementMenu} // onIncrement追加
             />
           );
         });
 
-        return ( // ここもAppコンポーネントなので注意
+        return (// ここもAppコンポーネントなので注意
           <>
             <h1>メニュー</h1>
             <ul className="menus">
