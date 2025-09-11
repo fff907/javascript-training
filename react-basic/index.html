@@ -69,9 +69,11 @@
             setCounts(newCounts); // countsを更新されたnewCountsで更新
           }
         };
-        // +ボタンを動作させる関数
+        // +ボタンを動作させる関数（おおよそは-の方を参照）
         const incrementMenu = () => {
-        
+          const newCounts = [...counts];
+          newCounts[menuId]++;
+          setCounts(newCounts);
         };
 
         // 配列をmapで自動化
