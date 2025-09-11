@@ -22,7 +22,8 @@
           // props.menuIdを渡す
         };
         const increment = () => {
-          props.onIncrement(); // +ボタンを動作させる関数の実行
+          props.onIncrement(props.menuId); // +ボタンを動作させる関数の実行
+          // props.menuIdを渡す
         };
 
         return (
