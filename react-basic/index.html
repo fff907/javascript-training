@@ -53,7 +53,7 @@
           (menus[1].price * counts[1]) + 
           (menus[2].price * counts[2]);
         // -ボタンを動作させる関数
-        const decrementMenu = (menuId) => {
+        const decrementMenu = (menuId) => { // ←ここのId付与忘れ注意!!
           // 最初のメニューの-ボタンがクリックされた場合、
           // [0, 0, 0] → [-1, 0, 0]として最初だけ-1する
           // ＝現在のcountsの値をいったんコピーして、
@@ -71,7 +71,7 @@
           }
         };
         // +ボタンを動作させる関数（おおよそは-の方を参照）
-        const incrementMenu = () => {
+        const incrementMenu = (menuId) => { // ←ここのId付与忘れ注意!!
           const newCounts = [...counts];
           newCounts[menuId]++;
           setCounts(newCounts);
@@ -87,7 +87,8 @@
               name={menu.name}
               price={menu.price}
               onDecrement={decrementMenu} // onDecrement追加
-              onIncrement={IncrementMenu} // onIncrement追加
+              onIncrement={incrementMenu} // onIncrement追加
+              // 大文字、小文字のタイプミスに注意!!
             />
           );
         });
