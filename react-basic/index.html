@@ -19,7 +19,8 @@
       const Menu = (props) => {
   
         const decrement = () => {
-          props.onDecrement(); // -ボタンを動作させる関数の実行
+          props.onDecrement(props.menuId); // -ボタンを動作させる関数の実行
+          // props.menuIdを渡す
         };
         const increment = () => {
           props.onIncrement(); // +ボタンを動作させる関数の実行
@@ -51,12 +52,22 @@
           (menus[1].price * counts[1]) + 
           (menus[2].price * counts[2]);
         // -ボタンを動作させる関数
-        const decrementMenu = () => {
-          console.log('minus button clicked!');
+        const decrementMenu = (menuId) => {
+          // 最初のメニューの-ボタンがクリックされた場合、
+          // [0, 0, 0] → [-1, 0, 0]として最初だけ-1する
+          // ＝現在のcountsの値をいったんコピーして、
+          // クリックされたメニューに対応する要素の値だけ1減らす処理を作る
+          // 配列の角括弧の中で、スプレッド構文を使って
+          // countsの要素を展開すれば、コピーを作ることができる
+          // そして、newCountsのうち、
+          // クリックされたメニューに対応する要素としてmenuIdを追加
+          const newCounts = [...counts];
+          newCounts[menuId]--; // --で'menuId番目の要素の値を1減らす'
+          setCounts(newCounts); // countsを更新されたnewCountsで更新
         };
         // +ボタンを動作させる関数
         const incrementMenu = () => {
-          console.log('plus button clicked!');
+          
         };
 
         // 配列をmapで自動化
@@ -64,6 +75,7 @@
           return (
             <Menu
               key={menu.id} // keyを追加
+              menuId={menu.id} // menuIdを追加
               count={counts[menu.id]}  // countを追加
               name={menu.name}
               price={menu.price}
