@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My React App</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container"></div>
+  
+  <script type="text/babel">
+    'use strict';
+
+    {
+      const Menu = (props) => {
+        const decrement = () => {
+          props.onDecrement(props.menuId); // -ボタンを動作させる関数の実行
+          // props.menuIdを渡す
+        };
+        const increment = () => {
+          props.onIncrement(props.menuId); // +ボタンを動作させる関数の実行
+          // props.menuIdを渡す
+        };
+
+        return (
+          <li>
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
+            {props.name} ({props.price}円 ☓ {props.count}個)
+            {/* 個数管理のcount、ここにもpropsを付ける */}
+          </li>
+        );
+      };
+
+      const App = () => {
+        // Menuコンポーネントからの移動、初期値は[0,0,0]
+        // 3メニュー分まとめて親(Appコンポーネント)が持つ
+        const [counts, setCounts] = React.useState([0, 0, 0]);
+        // menusとして定義し配列化
+        const menus = [
+          {id: 0, name: '牛丼', price: 400},
+          {id: 1, name: 'カレー', price: 500},
+          {id: 2, name: 'サラダ', price: 300},
+        ];
+        // 合計金額を出す関数
+        // menusのpriceと対応するcountsの個数を掛け合わせたものを足す
+        const total = 
+          (menus[0].price * counts[0]) + 
+          (menus[1].price * counts[1]) + 
+          (menus[2].price * counts[2]);
+        // -ボタンを動作させる関数
+        const decrementMenu = (menuId) => { // ←ここのId付与忘れ注意!!
+          // 最初のメニューの-ボタンがクリックされた場合、
+          // [0, 0, 0] → [-1, 0, 0]として最初だけ-1する
+          // ＝現在のcountsの値をいったんコピーして、
+          // クリックされたメニューに対応する要素の値だけ1減らす処理を作る
+          // 配列の角括弧の中で、スプレッド構文を使って
+          // countsの要素を展開すれば、コピーを作ることができる
+          // そして、newCountsのうち、
+          // クリックされたメニューに対応する要素としてmenuIdを追加
+          // 加えて、個数、合計金額が-の値にならないようif文を追記、
+          // ここまでに書いた3つの処理を包む
+          if (counts[menuId] > 0) {
+            const newCounts = [...counts];
+            newCounts[menuId]--; // --で'menuId番目の要素の値を1減らす'
+            setCounts(newCounts); // countsを更新されたnewCountsで更新
+          }
+        };
+        // +ボタンを動作させる関数（おおよそは-の方を参照）
+        const incrementMenu = (menuId) => { // ←ここのId付与忘れ注意!!
+          const newCounts = [...counts];
+          newCounts[menuId]++;
+          setCounts(newCounts);
+        };
+
+        // 配列をmapで自動化
+        const menuItems = menus.map((menu) => {
+          return (
+            <Menu
+              key={menu.id} // keyを追加
+              menuId={menu.id} // menuIdを追加
+              count={counts[menu.id]}  // countを追加
+              name={menu.name}
+              price={menu.price}
+              onDecrement={decrementMenu} // onDecrement追加
+              onIncrement={incrementMenu} // onIncrement追加
+              // 大文字、小文字のタイプミスに注意!!
+            />
+          );
+        });
+
+        return (// ここもAppコンポーネントなので注意
+          <>
+            <h1>メニュー</h1>
+            <ul className="menus">
+            {/* 関数化したのでこの辺りの記述を省略できる */}
+              {menuItems}
+            </ul>
+            <p>合計: {total}円</p>
+          </>
+        );
+      };
+
+      const container = document.querySelector('#container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    }
+  </script>
+</body>
+</html>
