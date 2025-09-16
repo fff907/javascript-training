@@ -37,6 +37,15 @@
           {id: 2, title: 'ccc', isCompleted: false},
         ];
 
+        const todoItems = todos.map((todo) => {
+          return (
+            <Todo 
+              key={todo.id}
+              todo={todo}
+            />
+          );
+        });
+
         return (
           <>
             <h1>
