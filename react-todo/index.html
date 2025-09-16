@@ -18,34 +18,35 @@
     'use strict';
 
     {
-    const App = () => {
+    const Todo = () => {
+        return (
+          <li>
+            <label>
+              <input type="checkbox" />
+              <span>aaa</span>
+            </label>
+            <button>Del</button>
+          </li>
+        );
+      };
+
+      const App = () => {
+        const todos = [
+          {id: 0, title: 'aaa', isCompleted: false},
+          {id: 1, title: 'bbb', isCompleted: true},
+          {id: 2, title: 'ccc', isCompleted: false},
+        ];
+
         return (
           <>
-            {/* JSX内にて、フラグメントで囲ってから
-              HTML要素を入れる */}
             <h1>
               Todos
               <button id="purge">Purge</button>
             </h1>
             <ul id="todos">
-              <li>
-                <label>
-                  <input type="checkbox" />
-                  <span>
-                    aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa 
-                  </span>
-                </label>
-                <button>Del</button>
-              </li>
-              <li>
-                <label>
-                  <input type="checkbox" />
-                  <span>
-                    aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa 
-                  </span>
-                </label>
-                <button>Del</button>
-              </li>
+              <Todo />
+              <Todo />
+              <Todo />
             </ul>
             <form id="add-form">
               <input type="text" />
