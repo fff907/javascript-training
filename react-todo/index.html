@@ -15,17 +15,21 @@
   </div>
 
   <script type="text/babel">
-    'use strict';
+     'use strict';
 
     {
       const Todo = (props) => {
+        const handleDeleteClick = () => {
+          props.onDeleteClick(props.todo.id);
+        };
+
         return (
           <li>
             <label>
               <input type="checkbox" />
               <span>{props.todo.title}</span>
             </label>
-            <button>Del</button>
+            <button onClick={handleDeleteClick}>Del</button>
           </li>
         );
       };
@@ -52,6 +56,7 @@
             <Todo 
               key={todo.id}
               todo={todo}
+              onDeleteClick={handleTodoDeleteClick}
             />
           );
         });
