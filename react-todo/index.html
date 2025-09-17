@@ -18,12 +18,12 @@
     'use strict';
 
     {
-    const Todo = () => {
+      const Todo = (props) => {
         return (
           <li>
             <label>
               <input type="checkbox" />
-              <span>aaa</span>
+              <span>{props.todo.title}</span>
             </label>
             <button>Del</button>
           </li>
@@ -53,9 +53,7 @@
               <button id="purge">Purge</button>
             </h1>
             <ul id="todos">
-              <Todo />
-              <Todo />
-              <Todo />
+              {todoItems}
             </ul>
             <form id="add-form">
               <input type="text" />
