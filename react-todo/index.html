@@ -31,11 +31,21 @@
       };
 
       const App = () => {
-        const todos = [
+        const [todos, setTodos] = React.useState([
           {id: 0, title: 'aaa', isCompleted: false},
           {id: 1, title: 'bbb', isCompleted: true},
           {id: 2, title: 'ccc', isCompleted: false},
-        ];
+        ]);
+
+        const handleTodoDeleteClick = (id) => {
+          if (!confirm('Sure?')) {
+            return;
+          }
+          const newTodos = todos.filter((todo) => {
+            return todo.id !== id;
+          });
+          setTodos(newTodos);
+        };
 
         const todoItems = todos.map((todo) => {
           return (
