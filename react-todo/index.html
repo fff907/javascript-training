@@ -15,7 +15,7 @@
   </div>
 
   <script type="text/babel">
-    'use strict';
+   'use strict';
 
     {
       const Todo = (props) => {
@@ -44,6 +44,7 @@
 
       const AddForm = (props) => {
         const [title, setTitle] = React.useState('');
+        const inputRef = React.useRef(null);
 
         const handleTextChange = (e) => {
           setTitle(e.currentTarget.value);
@@ -52,6 +53,8 @@
         const handleSubmit = (e) => {
           e.preventDefault();
           props.onSubmit(title);
+          setTitle('');
+          inputRef.current.focus();
         };
 
         return (
@@ -60,6 +63,7 @@
               type="text" 
               value={title}
               onChange={handleTextChange}
+              ref={inputRef}
             />
             <button>Add</button>
           </form>
@@ -72,6 +76,16 @@
           {id: 1, title: 'bbb', isCompleted: true},
           {id: 2, title: 'ccc', isCompleted: false},
         ]);
+
+        const handlePurgeClick = () => {
+          if (!confirm('Sure?')) {
+            return;
+          }
+          const newTodos = todos.filter((todo) => {
+            return todo.isCompleted === false;
+          });
+          setTodos(newTodos);
+        };
 
         const handleAddFormSubmit = (title) => {
           const newTodos = [...todos];
@@ -119,7 +133,7 @@
           <>
             <h1>
               Todos
-              <button id="purge">Purge</button>
+              <button onClick={handlePurgeClick}>Purge</button>
             </h1>
             <ul id="todos">
               {todoItems}
