@@ -7,20 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tailwind CSS の scriptタグ -->
   </head>
-<body class="bg-red-200 sm:bg-red-300 lg:bg-red-400">
-  <header class="bg-gray-200">
-    Header
-  </header>
-  <div class="flex gap-4">
-    <main class="bg-gray-300 flex-1">
-      Main
-    </main>
-    <aside class="bg-gray-400 w-40">
-      Aside
-    </aside>
-  </div>
-  <footer class="bg-gray-500">
-    Footer
-  </footer>
-</body>
+  <body class="bg-red-200 sm:bg-red-300 lg:bg-red-400">
+    <header class="bg-gray-200">
+      Header
+      <nav class="sm:hidden">SP Menu</nav>
+      <nav class="hidden sm:block">PC Menu</nav>
+    </header>
+    <div class="sm:flex sm:gap-4">
+      <main class="bg-gray-300 sm:flex-1">
+        Main
+      </main>
+      <aside class="bg-gray-400 sm:w-40">
+        Aside
+      </aside>
+    </div>
+    <footer class="bg-gray-500">
+      Footer
+    </footer>
+  </body>
 </html>
